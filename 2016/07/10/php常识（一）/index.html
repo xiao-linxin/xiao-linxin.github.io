@@ -9,11 +9,11 @@
 <meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php常识">
-<meta property="og:url" content="http://yoursite.com/2016/07/10/php常识/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/07/10/php常识（一）/index.html">
 <meta property="og:site_name" content="xiao-linxin">
 <meta property="og:description" content="php常识（一） 1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-01T10:42:16.162Z">
+<meta property="og:updated_time" content="2019-03-01T10:52:03.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php常识">
 <meta name="twitter:description" content="php常识（一） 1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen(">
@@ -69,9 +69,9 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-php常识" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-php常识（一）" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/10/php常识/" class="article-date">
+    <a href="/2016/07/10/php常识（一）/" class="article-date">
   <time class="post-time" datetime="2016-07-09T16:00:00.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br>
     <span class="post-day">10</span>
@@ -100,7 +100,7 @@
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2016/07/10/php常识/" class="leancloud_visitors" data-flag-title="php常识">
+    <span id="/2016/07/10/php常识（一）/" class="leancloud_visitors" data-flag-title="php常识">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -172,30 +172,33 @@
 </ol>
 <p><code>当尝试以调用函数的方式调用一个对象时，__invoke() 方法会被自动调用，例如</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function __invoke($x) &#123;</span><br><span class="line">  var_dump($x);</span><br><span class="line">&#125; </span><br><span class="line">$obj = new CallableClass;</span><br><span class="line">$obj(5);会输出int(5)</span><br></pre></td></tr></table></figure>
-<p>__set_state </p>
-<ul>
-<li>调用 var_export() 导出类时，此静态 方法会被调用。</li>
-<li>本方法的唯一参数是一个数组，其中包含按 array(‘property’ =&gt; value, …) 格式排列的类属性。</li>
-</ul>
-<p>__clone </p>
-<ul>
-<li>对象复制可以通过 clone 关键字来完成（如果可能，这将调用对象的 __clone() 方法）。</li>
-<li>对象中的 __clone() 方法不能被直接调用。</li>
-</ul>
-<p>$copy_of_object = clone $object;</p>
-<ul>
-<li>当对象被复制后，PHP 5 会对对象的所有属性执行一个浅复制（shallow copy）。所有的引用属性 仍然会是一个指向原来的变量的引用。当复制完成时，如果定义了 <strong>clone() 方法，则新创建的对象（复制生成的对象）中的 </strong>clone() 方法会被调用，可用于修改属性的值（如果有必要的话）。</li>
-</ul>
-<p>__debugInfo</p>
-<ul>
-<li>当var_dumo(new Class)（参数为一个对象时），该方法可以控制显示的内容，若没有定义此方法，var_dump()将默认展示对象的所有属性和方法</li>
-</ul>
+<ol start="8">
+<li>__set_state</li>
+</ol>
+<p><code>调用 var_export() 导出类时，此静态 方法会被调用。</code></p>
+<p><code>本方法的唯一参数是一个数组，其中包含按 array(&#39;property&#39; =&gt; value, ...) 格式排列的类属性。</code></p>
+<ol start="9">
+<li>__clone</li>
+</ol>
+<p><code>对象复制可以通过 clone 关键字来完成（如果可能，这将调用对象的 __clone() 方法）。</code></p>
+<p><code>对象中的 __clone() 方法不能被直接调用。</code></p>
+<ol start="10">
+<li>$copy_of_object = clone $object;</li>
+</ol>
+<p><code>当对象被复制后，PHP 5 会对对象的所有属性执行一个浅复制（shallow copy）。所有的引用属性 仍然会是一个指向原来的变量的引用。当复制完成时，如果定义了 __clone() 方法，则新创建的对象（复制生成的对象）中的 __clone() 方法会被调用，可用于修改属性的值（如果有必要的话）。</code></p>
+<ol start="11">
+<li>__debugInfo</li>
+</ol>
+<p><code>当var_dumo(new Class)（参数为一个对象时），该方法可以控制显示的内容，若没有定义此方法，var_dump()将默认展示对象的所有属性和方法。</code></p>
+<hr>
+<h2 id="static、-this、self-区别"><a href="#static、-this、self-区别" class="headerlink" title="static、$this、self 区别"></a>static、$this、self 区别</h2><p>$this通俗解释就是当前类的一个实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">  public static function className() &#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">  public static function test() &#123;</span><br><span class="line">    self::className();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A &#123;</span><br><span class="line">  public static function className()&#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test();</span><br></pre></td></tr></table></figure>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/10/php常识/" data-id="cjspxif2y0003shqxofd19q44" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/10/php常识（一）/" data-id="cjspy251x0002xbqxf5u6pxs6" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -223,7 +226,7 @@
 
 
   <div id="comments" class="comments">
-  <div id="SOHUCS" sid="php常识"></div>
+  <div id="SOHUCS" sid="php常识（一）"></div>
 </div>
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
 <script type="text/javascript">
