@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="xiao-linxin">
 <meta property="og:description" content="php常识（一） 1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-01T10:52:03.528Z">
+<meta property="og:updated_time" content="2019-03-01T11:02:51.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php常识">
 <meta name="twitter:description" content="php常识（一） 1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen(">
@@ -134,62 +134,103 @@
 <h2 id="全部魔术函数理解"><a href="#全部魔术函数理解" class="headerlink" title="全部魔术函数理解"></a>全部魔术函数理解</h2><ol>
 <li>__construct</li>
 </ol>
-<p><code>类的构造函数，常用来给类的属性赋值。</code></p>
-<p><code>注意事项：
-如果子类中定义了构造函数则不会隐式调用其父类的构造函数。
-要执行父类的构造函数，需要在子类的构造函数中调用 parent::__construct()，
-如果子类没有定义构造函数则会如同一个普通的类方法一样从父类继承（假如没有被定义为 private 的话）。</code></p>
+<blockquote>
+<p>类的构造函数，常用来给类的属性赋值。</p>
+</blockquote>
+<blockquote>
+<p>注意事项：<br>如果子类中定义了构造函数则不会隐式调用其父类的构造函数。<br>要执行父类的构造函数，需要在子类的构造函数中调用 parent::__construct()，<br>如果子类没有定义构造函数则会如同一个普通的类方法一样从父类继承（假如没有被定义为 private 的话）。</p>
+</blockquote>
 <ol start="2">
 <li>__destruct</li>
 </ol>
-<p><code>析构函数，析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。</code></p>
+<blockquote>
+<p>析构函数，析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。</p>
+</blockquote>
 <ol start="3">
 <li><strong>call，</strong>callStatic</li>
 </ol>
-<p><code>在对象中调用一个不可访问方法时，__call() 会被调用。</code></p>
-<p><code>在静态上下文中调用一个不可访问方法时，__callStatic() 会被调用，作为调用类中不存在的方法时对开发者的一个友好提示</code></p>
+<blockquote>
+<p>在对象中调用一个不可访问方法时，__call() 会被调用。</p>
+</blockquote>
+<blockquote>
+<p>在静态上下文中调用一个不可访问方法时，__callStatic() 会被调用，作为调用类中不存在的方法时对开发者的一个友好提示</p>
+</blockquote>
 <ol start="4">
 <li><strong>set，</strong>get，<strong>isset ，</strong>unset</li>
 </ol>
-<p><code>在给不可访问属性赋值时，__set() 会被调用；</code></p>
-<p><code>读取不可访问属性的值时，__get() 会被调用；</code></p>
-<p><code>当对不可访问属性调用 isset() 或 empty() 时，__isset() 会被调用；</code></p>
-<p><code>当对不可访问属性调用 unset() 时，__unset() 会被调用。</code></p>
+<blockquote>
+<p>在给不可访问属性赋值时，__set() 会被调用；</p>
+</blockquote>
+<blockquote>
+<p>读取不可访问属性的值时，__get() 会被调用；</p>
+</blockquote>
+<blockquote>
+<p>当对不可访问属性调用 isset() 或 empty() 时，__isset() 会被调用；</p>
+</blockquote>
+<blockquote>
+<p>当对不可访问属性调用 unset() 时，__unset() 会被调用。</p>
+</blockquote>
 <ol start="5">
 <li><strong>sleep，</strong>wakeup  serialize() </li>
 </ol>
-<p><code>函数会检查类中是否存在一个魔术方法 __sleep()。</code></p>
-<p><code>如果存在，该方法会先被调用，然后才执行序列化操作。</code></p>
-<p><code>此功能可以用于清理对象，并返回一个包含对象中所有应被序列化的变量名称的数组。</code></p>
-<p><code>如果该方法未返回任何内容，则 NULL 被序列化，并产生一个 E_NOTICE 级别的错误，返回父类的私有成员的名字，常用于提交未提交的数据，或类似的清理操作。</code></p>
-<p><code>与之相反，unserialize() 会检查是否存在一个 __wakeup() 方法。如果存在，则会先调用 __wakeup 方法，预先准备对象需要的资源。__wakeup() 经常用在反序列化操作中，例如重新建立数据库连接，或执行其它初始化操作。</code></p>
+<blockquote>
+<p>函数会检查类中是否存在一个魔术方法 __sleep()。</p>
+</blockquote>
+<blockquote>
+<p>如果存在，该方法会先被调用，然后才执行序列化操作。</p>
+</blockquote>
+<blockquote>
+<p>此功能可以用于清理对象，并返回一个包含对象中所有应被序列化的变量名称的数组。</p>
+</blockquote>
+<blockquote>
+<p>如果该方法未返回任何内容，则 NULL 被序列化，并产生一个 E_NOTICE 级别的错误，返回父类的私有成员的名字，常用于提交未提交的数据，或类似的清理操作。</p>
+</blockquote>
+<blockquote>
+<p>与之相反，unserialize() 会检查是否存在一个 <strong>wakeup() 方法。如果存在，则会先调用 </strong>wakeup 方法，预先准备对象需要的资源。__wakeup() 经常用在反序列化操作中，例如重新建立数据库连接，或执行其它初始化操作。</p>
+</blockquote>
 <ol start="6">
 <li>__toString</li>
 </ol>
-<p><code>用于当直接echo $obj（一个对象）时该显示什么内容，必须返回一个字符串且不能在方法内抛出异常。</code></p>
+<blockquote>
+<p>用于当直接echo $obj（一个对象）时该显示什么内容，必须返回一个字符串且不能在方法内抛出异常。</p>
+</blockquote>
 <ol start="7">
 <li>__invoke</li>
 </ol>
-<p><code>当尝试以调用函数的方式调用一个对象时，__invoke() 方法会被自动调用，例如</code></p>
+<blockquote>
+<p>当尝试以调用函数的方式调用一个对象时，__invoke() 方法会被自动调用，例如</p>
+</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function __invoke($x) &#123;</span><br><span class="line">  var_dump($x);</span><br><span class="line">&#125; </span><br><span class="line">$obj = new CallableClass;</span><br><span class="line">$obj(5);会输出int(5)</span><br></pre></td></tr></table></figure>
 <ol start="8">
 <li>__set_state</li>
 </ol>
-<p><code>调用 var_export() 导出类时，此静态 方法会被调用。</code></p>
-<p><code>本方法的唯一参数是一个数组，其中包含按 array(&#39;property&#39; =&gt; value, ...) 格式排列的类属性。</code></p>
+<blockquote>
+<p>调用 var_export() 导出类时，此静态 方法会被调用。</p>
+</blockquote>
+<blockquote>
+<p>本方法的唯一参数是一个数组，其中包含按 array(‘property’ =&gt; value, …) 格式排列的类属性。</p>
+</blockquote>
 <ol start="9">
 <li>__clone</li>
 </ol>
-<p><code>对象复制可以通过 clone 关键字来完成（如果可能，这将调用对象的 __clone() 方法）。</code></p>
-<p><code>对象中的 __clone() 方法不能被直接调用。</code></p>
+<blockquote>
+<p>对象复制可以通过 clone 关键字来完成（如果可能，这将调用对象的 __clone() 方法）。</p>
+</blockquote>
+<blockquote>
+<p>对象中的 __clone() 方法不能被直接调用。</p>
+</blockquote>
 <ol start="10">
 <li>$copy_of_object = clone $object;</li>
 </ol>
-<p><code>当对象被复制后，PHP 5 会对对象的所有属性执行一个浅复制（shallow copy）。所有的引用属性 仍然会是一个指向原来的变量的引用。当复制完成时，如果定义了 __clone() 方法，则新创建的对象（复制生成的对象）中的 __clone() 方法会被调用，可用于修改属性的值（如果有必要的话）。</code></p>
+<blockquote>
+<p>当对象被复制后，PHP 5 会对对象的所有属性执行一个浅复制（shallow copy）。所有的引用属性 仍然会是一个指向原来的变量的引用。当复制完成时，如果定义了 <strong>clone() 方法，则新创建的对象（复制生成的对象）中的 </strong>clone() 方法会被调用，可用于修改属性的值（如果有必要的话）。</p>
+</blockquote>
 <ol start="11">
 <li>__debugInfo</li>
 </ol>
-<p><code>当var_dumo(new Class)（参数为一个对象时），该方法可以控制显示的内容，若没有定义此方法，var_dump()将默认展示对象的所有属性和方法。</code></p>
+<blockquote>
+<p>当var_dumo(new Class)（参数为一个对象时），该方法可以控制显示的内容，若没有定义此方法，var_dump()将默认展示对象的所有属性和方法。</p>
+</blockquote>
 <hr>
 <h2 id="static、-this、self-区别"><a href="#static、-this、self-区别" class="headerlink" title="static、$this、self 区别"></a>static、$this、self 区别</h2><p>$this通俗解释就是当前类的一个实例。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">  public static function className() &#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">  public static function test() &#123;</span><br><span class="line">    self::className();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A &#123;</span><br><span class="line">  public static function className()&#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test();</span><br></pre></td></tr></table></figure>
@@ -198,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/10/php常识（一）/" data-id="cjspy251x0002xbqxf5u6pxs6" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/10/php常识（一）/" data-id="cjspy8mri0003z6qxauroqjqd" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
