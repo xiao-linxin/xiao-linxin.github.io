@@ -124,119 +124,103 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$a = 1;</span><br><span class="line">$b =&amp; $a;</span><br><span class="line">unset($a);</span><br></pre></td></tr></table></figure>
 <p>不会 unset  $b，只是 $a。</p>
 <hr>
-<h2 id="与-区别"><a href="#与-区别" class="headerlink" title="== 与 === 区别"></a>== 与 === 区别</h2><p>==  是不带类型比较是否相同（比如数字100 == ‘100’结果为true）</p>
+<h2 id="3-与-区别"><a href="#3-与-区别" class="headerlink" title="3.== 与 === 区别"></a>3.== 与 === 区别</h2><p>==  是不带类型比较是否相同（比如数字100 == ‘100’结果为true）</p>
 <p>=== 是带类型比较是否相同（比如100 == ‘100’结果为false）</p>
 <hr>
-<h2 id="isset-与-empty-区别"><a href="#isset-与-empty-区别" class="headerlink" title="isset 与 empty 区别"></a>isset 与 empty 区别</h2><hr>
-<h2 id="全部魔术函数理解"><a href="#全部魔术函数理解" class="headerlink" title="全部魔术函数理解"></a>全部魔术函数理解</h2><ol>
+<h2 id="4-isset-与-empty-区别"><a href="#4-isset-与-empty-区别" class="headerlink" title="4.isset 与 empty 区别"></a>4.isset 与 empty 区别</h2><hr>
+<h2 id="5-全部魔术函数理解"><a href="#5-全部魔术函数理解" class="headerlink" title="5.全部魔术函数理解"></a>5.全部魔术函数理解</h2><ol>
 <li>__construct</li>
 </ol>
-<blockquote>
 <p>类的构造函数，常用来给类的属性赋值。</p>
-</blockquote>
-<blockquote>
 <p>注意事项：<br>如果子类中定义了构造函数则不会隐式调用其父类的构造函数。<br>要执行父类的构造函数，需要在子类的构造函数中调用 parent::__construct()，<br>如果子类没有定义构造函数则会如同一个普通的类方法一样从父类继承（假如没有被定义为 private 的话）。</p>
-</blockquote>
 <ol start="2">
 <li>__destruct</li>
 </ol>
-<blockquote>
 <p>析构函数，析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。</p>
-</blockquote>
 <ol start="3">
 <li><strong>call，</strong>callStatic</li>
 </ol>
-<blockquote>
 <p>在对象中调用一个不可访问方法时，__call() 会被调用。</p>
-</blockquote>
-<blockquote>
-<p>在静态上下文中调用一个不可访问方法时，__callStatic() 会被调用，作为调用类中不存在的方法时对开发者的一个友好提示</p>
-</blockquote>
+<p>在静态上下文中调用一个不可访问方法时，__callStatic() 会被调用，作为调用类中不存在的方法时对开发者的一个友好提示。</p>
 <ol start="4">
 <li><strong>set，</strong>get，<strong>isset ，</strong>unset</li>
 </ol>
-<blockquote>
 <p>在给不可访问属性赋值时，__set() 会被调用；</p>
-</blockquote>
-<blockquote>
 <p>读取不可访问属性的值时，__get() 会被调用；</p>
-</blockquote>
-<blockquote>
 <p>当对不可访问属性调用 isset() 或 empty() 时，__isset() 会被调用；</p>
-</blockquote>
-<blockquote>
 <p>当对不可访问属性调用 unset() 时，__unset() 会被调用。</p>
-</blockquote>
 <ol start="5">
 <li><strong>sleep，</strong>wakeup  serialize() </li>
 </ol>
-<blockquote>
 <p>函数会检查类中是否存在一个魔术方法 __sleep()。</p>
-</blockquote>
-<blockquote>
 <p>如果存在，该方法会先被调用，然后才执行序列化操作。</p>
-</blockquote>
-<blockquote>
 <p>此功能可以用于清理对象，并返回一个包含对象中所有应被序列化的变量名称的数组。</p>
-</blockquote>
-<blockquote>
 <p>如果该方法未返回任何内容，则 NULL 被序列化，并产生一个 E_NOTICE 级别的错误，返回父类的私有成员的名字，常用于提交未提交的数据，或类似的清理操作。</p>
-</blockquote>
-<blockquote>
 <p>与之相反，unserialize() 会检查是否存在一个 <strong>wakeup() 方法。如果存在，则会先调用 </strong>wakeup 方法，预先准备对象需要的资源。__wakeup() 经常用在反序列化操作中，例如重新建立数据库连接，或执行其它初始化操作。</p>
-</blockquote>
 <ol start="6">
 <li>__toString</li>
 </ol>
-<blockquote>
 <p>用于当直接echo $obj（一个对象）时该显示什么内容，必须返回一个字符串且不能在方法内抛出异常。</p>
-</blockquote>
 <ol start="7">
 <li>__invoke</li>
 </ol>
-<blockquote>
 <p>当尝试以调用函数的方式调用一个对象时，__invoke() 方法会被自动调用，例如</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function __invoke($x) &#123;</span><br><span class="line">  var_dump($x);</span><br><span class="line">&#125; </span><br><span class="line">$obj = new CallableClass;</span><br><span class="line">$obj(5);会输出int(5)</span><br></pre></td></tr></table></figure>
 <ol start="8">
 <li>__set_state</li>
 </ol>
-<blockquote>
 <p>调用 var_export() 导出类时，此静态 方法会被调用。</p>
-</blockquote>
-<blockquote>
 <p>本方法的唯一参数是一个数组，其中包含按 array(‘property’ =&gt; value, …) 格式排列的类属性。</p>
-</blockquote>
 <ol start="9">
 <li>__clone</li>
 </ol>
-<blockquote>
 <p>对象复制可以通过 clone 关键字来完成（如果可能，这将调用对象的 __clone() 方法）。</p>
-</blockquote>
-<blockquote>
 <p>对象中的 __clone() 方法不能被直接调用。</p>
-</blockquote>
 <ol start="10">
 <li>$copy_of_object = clone $object;</li>
 </ol>
-<blockquote>
 <p>当对象被复制后，PHP 5 会对对象的所有属性执行一个浅复制（shallow copy）。所有的引用属性 仍然会是一个指向原来的变量的引用。当复制完成时，如果定义了 <strong>clone() 方法，则新创建的对象（复制生成的对象）中的 </strong>clone() 方法会被调用，可用于修改属性的值（如果有必要的话）。</p>
-</blockquote>
 <ol start="11">
 <li>__debugInfo</li>
 </ol>
-<blockquote>
 <p>当var_dumo(new Class)（参数为一个对象时），该方法可以控制显示的内容，若没有定义此方法，var_dump()将默认展示对象的所有属性和方法。</p>
-</blockquote>
 <hr>
-<h2 id="static、-this、self-区别"><a href="#static、-this、self-区别" class="headerlink" title="static、$this、self 区别"></a>static、$this、self 区别</h2><p>$this通俗解释就是当前类的一个实例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">  public static function className() &#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">  public static function test() &#123;</span><br><span class="line">    self::className();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A &#123;</span><br><span class="line">  public static function className()&#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test();</span><br></pre></td></tr></table></figure>
+<h2 id="6-static、-this、self-区别"><a href="#6-static、-this、self-区别" class="headerlink" title="6.static、$this、self 区别"></a>6.static、$this、self 区别</h2><p>$this通俗解释就是当前类的一个实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">  public static function className() &#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">  public static function test() &#123;</span><br><span class="line">    self::className();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A &#123;</span><br><span class="line">  public static function className()&#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test(); //这将打印出来A</span><br></pre></td></tr></table></figure>
+<p>另一方面static::它具有预期的行为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">  public static function className() &#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public static function test() &#123;</span><br><span class="line">    static::className();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A &#123;</span><br><span class="line">  public static function className() &#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test(); // 这将打印出来B</span><br></pre></td></tr></table></figure>
+<p>这在PHP 5.3.0中称为后期静态绑定。它解决了调用运行时引用的类的限制。</p>
+<hr>
+<h2 id="7-private、protected、public、final-区别"><a href="#7-private、protected、public、final-区别" class="headerlink" title="7.private、protected、public、final 区别"></a>7.private、protected、public、final 区别</h2><p>public:权限是最大的，可以内部调用，实例调用等。</p>
+<p>protected: 受保护类型，用于本类和继承此类的子类调用。</p>
+<p>private: 私有类型，只有在本类中使用。</p>
+<p>static：静态资源，可以被子类继承。</p>
+<p>abstract：修饰抽象方法，没有方法体，由继承该类的子类来实现。</p>
+<p>final：表示该变量、该方法已经“完成”，不可被覆盖。修饰类时该类不能被继承。 </p>
+<p>（因此final和abstract不能同时出现）</p>
+<hr>
+<h2 id="8-OOP思想"><a href="#8-OOP思想" class="headerlink" title="8.OOP思想"></a>8.OOP思想</h2><p>简单理解：</p>
+<p>面向对象的编程就是编出一个人来，这个人可以做很多种动作，跑，跳，走，举手…他能做什么取决于你如何组合这些动作，有些动作在一些功能中是不用的。</p>
+<p>而层次化的编程（面向过程）就是造出一个具体的工具，他只能干这样一件事，条件——结果。</p>
+<hr>
+<h2 id="9-抽象类、接口-分别使用场景"><a href="#9-抽象类、接口-分别使用场景" class="headerlink" title="9.抽象类、接口 分别使用场景"></a>9.抽象类、接口 分别使用场景</h2><p>接口 通常是为了抽象一种行为，接口是一种规范，在设计上的意义是为了功能模块间的解耦，方便后面的功能扩展、维护，接口不能有具体的方法。</p>
+<p>抽象类 可以有具体的方法，也可以有抽象方法，一旦一个类有抽象方法，这个类就必须声明为抽象类，很多时候是为子类提供一些共用方法。</p>
+<p>所以，抽象类是为了简化接口的实现，他不仅提供了公共方法的实现，让你可以快速开发，又允许你的类完全可以自己实现所有的方法，不会出现紧耦合的问题。</p>
+<p>应用场合很简单了</p>
+<p>1 优先定义接口</p>
+<p>2 如果有多个接口实现有公用的部分，则使用抽象类，然后集成它。</p>
+<p>举个简单的例子：有一个动物接口，内有动物叫声和动物说你好两个方法，在实现该接口时各个动物的叫声肯定是不同的，但是他们都在说你好是相同的，此时就可以用抽象类，把相同的说你好的方法抽象出去，就不用在每个动物类中写了。</p>
+<hr>
+<h2 id="10-Trait-是什么东西"><a href="#10-Trait-是什么东西" class="headerlink" title="10.Trait 是什么东西"></a>10.Trait 是什么东西</h2><p>Trait 是为类似 PHP 的单继承语言而准备的一种代码复用机制。Trait 为了减少单继承语言的限制，使开发人员能够自由地在不同层次结构内独立的类中复用 method。Trait 和 Class 组合的语义定义了一种减少复杂性的方式，避免传统多继承和 Mixin 类相关典型问题。</p>
+<p>Trait 和 Class 相似，但仅仅旨在用细粒度和一致的方式来组合功能。 无法通过 trait 自身来实例化。它为传统继承增加了水平特性的组合；也就是说，应用的几个 Class 之间不需要继承。</p>
+<p>简单理解：Trait为不支持多继承的php实现了多继承，使用时不是用extends继承，而是在类内部用 use 类名 表示。</p>
+<p>重名方法优先级问题：当前类的成员覆盖 trait 的方法，而 trait 则覆盖被继承的方法。</p>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/10/php常识（一）/" data-id="cjspy8mri0003z6qxauroqjqd" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/10/php常识（一）/" data-id="cjspyo79c000f0vqxbnwvidlz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -386,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/php常用函数/" data-id="cjspy8ms2000lz6qxk9q8jkbw" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/06/php常用函数/" data-id="cjspyo79b000e0vqx0pw387og" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -463,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/名词备忘/" data-id="cjspy8mrn0007z6qxjqlbmjuq" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/05/名词备忘/" data-id="cjspyo78p00030vqx1b78yhnl" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通用/">通用</a></li></ul>
@@ -548,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/hexo使用步骤/" data-id="cjspy8mre0001z6qx7z7vwwyj" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/04/hexo使用步骤/" data-id="cjspyo78j00010vqx1xpcxeey" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
