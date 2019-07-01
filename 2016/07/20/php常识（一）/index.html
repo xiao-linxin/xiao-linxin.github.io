@@ -9,11 +9,11 @@
 <meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php常识">
-<meta property="og:url" content="http://yoursite.com/2016/07/10/php常识（一）/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/07/20/php常识（一）/index.html">
 <meta property="og:site_name" content="xiao-linxin">
 <meta property="og:description" content="php常识（一） 1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-01T11:15:02.403Z">
+<meta property="og:updated_time" content="2019-07-01T09:30:45.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php常识">
 <meta name="twitter:description" content="php常识（一） 1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen(">
@@ -43,7 +43,7 @@
     <h2 class="author">xiao-linxin</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
       <a href="/categories"><div><strong>4</strong><br>分类</div></a>
       <a href="/tags"><div><strong>3</strong><br>标签</div></a>
     </div>
@@ -71,10 +71,10 @@
 
         <section id="main"><article id="post-php常识（一）" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/10/php常识（一）/" class="article-date">
-  <time class="post-time" datetime="2016-07-09T16:00:00.000Z" itemprop="datePublished">
+    <a href="/2016/07/20/php常识（一）/" class="article-date">
+  <time class="post-time" datetime="2016-07-19T16:00:00.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br>
-    <span class="post-day">10</span>
+    <span class="post-day">20</span>
   </time>
 </a>
 
@@ -100,7 +100,7 @@
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2016/07/10/php常识（一）/" class="leancloud_visitors" data-flag-title="php常识">
+    <span id="/2016/07/20/php常识（一）/" class="leancloud_visitors" data-flag-title="php常识">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,11 +113,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="php常识（一）"><a href="#php常识（一）" class="headerlink" title="php常识（一）"></a>php常识（一）</h1><hr>
-<h2 id="1-普通字符串处理函数和mb-系列函数的区别："><a href="#1-普通字符串处理函数和mb-系列函数的区别：" class="headerlink" title="1.普通字符串处理函数和mb_系列函数的区别："></a>1.普通字符串处理函数和mb_系列函数的区别：</h2><p>不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。<br>最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen()会返回一个字符串的字符数。再比如，substr($str2, 2, 2)在$str为中文时可能会正好截取到一个汉字的一部分，这时就会发生乱码，而mb_substr($str, 2, 2, ‘utf-8’)指定编码后就不会发生乱码问题了，中文时即是取几个汉字。</p>
+<h2 id="1-普通字符串处理函数和mb-系列函数的区别："><a href="#1-普通字符串处理函数和mb-系列函数的区别：" class="headerlink" title="1.普通字符串处理函数和mb_系列函数的区别："></a>1.普通字符串处理函数和mb_系列函数的区别：</h2><p>不同编码的个别语言（比如中文）所占字节数不同，<br>一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，<br>普通字符串处理函数是按每个字符1字节来处理的，<br>而mb_系列的函数在使用时可以多指定一个编码参数，<br>方便处理不同编码的中文。<br>最简单的例子，strlen() 会返回一个字符串所占字节数，<br>而mb_strlen()会返回一个字符串的字符数。<br>再比如，substr($str2, 2, 2)在$str为中文时可能会正好截取到一个汉字的一部分，<br>这时就会发生乱码，而mb_substr($str, 2, 2, ‘utf-8’)指定编码后就不会发生乱码问题了，<br>中文时即是取几个汉字。</p>
 <hr>
 <h2 id="2-amp-引用，结合案例分析"><a href="#2-amp-引用，结合案例分析" class="headerlink" title="2.&amp; 引用，结合案例分析"></a>2.&amp; 引用，结合案例分析</h2><p>PHP 的引用允许用两个变量来指向同一个内容。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$a = &amp; $b;</span><br></pre></td></tr></table></figure>
-<p>$a 和 $b 在这里是完全相同的，这并不是 $a 指向了 $b 或者相反，而是 $a 和 $b 指向了同一个地方。</p>
+<p>$a 和 $b 在这里是完全相同的，<br>这并不是 $a 指向了 $b 或者相反，而是 $a 和 $b 指向了同一个地方。</p>
 <p>引用做的第二件事是用引用传递变量。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function foo(&amp; $var) &#123;</span><br><span class="line">  $var++;</span><br><span class="line">&#125;</span><br><span class="line">$a = 5;</span><br><span class="line">foo($a);</span><br></pre></td></tr></table></figure>
 <p>将使 $a 变成 6。这是因为在 foo 函数中变量 $var 指向了和 $a 指向的同一个内容。</p>
@@ -130,63 +130,39 @@
 <h2 id="3-与-区别"><a href="#3-与-区别" class="headerlink" title="3.== 与 === 区别"></a>3.== 与 === 区别</h2><p>==  是不带类型比较是否相同（比如数字100 == ‘100’结果为true）</p>
 <p>=== 是带类型比较是否相同（比如100 == ‘100’结果为false）</p>
 <hr>
-<h2 id="4-isset-与-empty-区别"><a href="#4-isset-与-empty-区别" class="headerlink" title="4.isset 与 empty 区别"></a>4.isset 与 empty 区别</h2><hr>
-<h2 id="5-全部魔术函数理解"><a href="#5-全部魔术函数理解" class="headerlink" title="5.全部魔术函数理解"></a>5.全部魔术函数理解</h2><ol>
-<li>__construct</li>
-</ol>
-<p>类的构造函数，常用来给类的属性赋值。</p>
-<p>注意事项：<br>如果子类中定义了构造函数则不会隐式调用其父类的构造函数。<br>要执行父类的构造函数，需要在子类的构造函数中调用 parent::__construct()，<br>如果子类没有定义构造函数则会如同一个普通的类方法一样从父类继承（假如没有被定义为 private 的话）。</p>
-<ol start="2">
-<li>__destruct</li>
-</ol>
-<p>析构函数，析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。</p>
-<ol start="3">
-<li><strong>call，</strong>callStatic</li>
-</ol>
-<p>在对象中调用一个不可访问方法时，__call() 会被调用。</p>
-<p>在静态上下文中调用一个不可访问方法时，__callStatic() 会被调用，作为调用类中不存在的方法时对开发者的一个友好提示。</p>
-<ol start="4">
-<li><strong>set，</strong>get，<strong>isset ，</strong>unset</li>
-</ol>
-<p>在给不可访问属性赋值时，__set() 会被调用；</p>
+<h2 id="4-isset-与-empty-区别"><a href="#4-isset-与-empty-区别" class="headerlink" title="4.isset 与 empty 区别"></a>4.isset 与 empty 区别</h2><h3 id="empty"><a href="#empty" class="headerlink" title="empty()"></a>empty()</h3><p>empty()：如果变量是非空或非零的值，则返回false。</p>
+<p>“”、0、”0”、NULL、FALSE、array()、var $var、未定义，没有任何属性的对象，则返回false。</p>
+<p>如果var为空，则返回true。</p>
+<h3 id="isset"><a href="#isset" class="headerlink" title="isset()"></a>isset()</h3><p>isset()：如果变量存在（非null）则返回true，否则返回false。</p>
+<p>变量值设置为：null，返回也是false; </p>
+<p>unset一个变量后，变量被取消了。注意，isset对于NULL值变量，特殊处理。</p>
+<h3 id="is-null"><a href="#is-null" class="headerlink" title="is_null()"></a>is_null()</h3><p>is_null()：检测传入值【值，变量，表达式】是否是null。<br>只有一个变量定义了，且它的值是null，它才返回TRUE。其它都返回 FALSE 【未定义变量传入后会出错！】。</p>
+<h3 id="defined"><a href="#defined" class="headerlink" title="defined()"></a>defined()</h3><p>defined()：检测一个常量是否已经定义</p>
+<h3 id="property-exists"><a href="#property-exists" class="headerlink" title="property_exists()"></a>property_exists()</h3><p>property_exists()：检测一个类(或对象)中是否存在某一个属性，跟array_key_exists()一样，即使属性值为null，仍然返回true。</p>
+<hr>
+<h2 id="5-全部魔术函数理解"><a href="#5-全部魔术函数理解" class="headerlink" title="5.全部魔术函数理解"></a>5.全部魔术函数理解</h2><h3 id="1-construct"><a href="#1-construct" class="headerlink" title="1. __construct"></a>1. __construct</h3><p>类的构造函数，常用来给类的属性赋值。</p>
+<p>注意事项：<br>如果子类中定义了构造函数则不会隐式调用其父类的构造函数。<br>要执行父类的构造函数，<br>需要在子类的构造函数中调用 parent::__construct()，<br>如果子类没有定义构造函数则会如同一个普通的类方法一样从父类继承（假如没有被定义为 private 的话）。</p>
+<h3 id="2-destruct"><a href="#2-destruct" class="headerlink" title="2. __destruct"></a>2. __destruct</h3><p>析构函数，析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。</p>
+<h3 id="3-call，callStatic"><a href="#3-call，callStatic" class="headerlink" title="3. call，callStatic"></a>3. <strong>call，</strong>callStatic</h3><p>在对象中调用一个不可访问方法时，__call() 会被调用。</p>
+<p>在静态上下文中调用一个不可访问方法时，<br>__callStatic() 会被调用，<br>作为调用类中不存在的方法时对开发者的一个友好提示。</p>
+<h3 id="4-set，get，isset-，unset"><a href="#4-set，get，isset-，unset" class="headerlink" title="4. set，get，isset ，unset"></a>4. <strong>set，</strong>get，<strong>isset ，</strong>unset</h3><p>在给不可访问属性赋值时，__set() 会被调用；</p>
 <p>读取不可访问属性的值时，__get() 会被调用；</p>
 <p>当对不可访问属性调用 isset() 或 empty() 时，__isset() 会被调用；</p>
 <p>当对不可访问属性调用 unset() 时，__unset() 会被调用。</p>
-<ol start="5">
-<li><strong>sleep，</strong>wakeup  serialize() </li>
-</ol>
-<p>函数会检查类中是否存在一个魔术方法 __sleep()。</p>
+<h3 id="5-sleep，wakeup-serialize"><a href="#5-sleep，wakeup-serialize" class="headerlink" title="5. sleep，wakeup  serialize()"></a>5. <strong>sleep，</strong>wakeup  serialize()</h3><p>函数会检查类中是否存在一个魔术方法 __sleep()。</p>
 <p>如果存在，该方法会先被调用，然后才执行序列化操作。</p>
 <p>此功能可以用于清理对象，并返回一个包含对象中所有应被序列化的变量名称的数组。</p>
-<p>如果该方法未返回任何内容，则 NULL 被序列化，并产生一个 E_NOTICE 级别的错误，返回父类的私有成员的名字，常用于提交未提交的数据，或类似的清理操作。</p>
-<p>与之相反，unserialize() 会检查是否存在一个 <strong>wakeup() 方法。如果存在，则会先调用 </strong>wakeup 方法，预先准备对象需要的资源。__wakeup() 经常用在反序列化操作中，例如重新建立数据库连接，或执行其它初始化操作。</p>
-<ol start="6">
-<li>__toString</li>
-</ol>
-<p>用于当直接echo $obj（一个对象）时该显示什么内容，必须返回一个字符串且不能在方法内抛出异常。</p>
-<ol start="7">
-<li>__invoke</li>
-</ol>
-<p>当尝试以调用函数的方式调用一个对象时，__invoke() 方法会被自动调用，例如</p>
+<p>如果该方法未返回任何内容，<br>则 NULL 被序列化，<br>并产生一个 E_NOTICE 级别的错误，<br>返回父类的私有成员的名字，<br>常用于提交未提交的数据，或类似的清理操作。</p>
+<p>与之相反，unserialize() 会检查是否存在一个 <strong>wakeup() 方法。<br>如果存在，则会先调用 </strong>wakeup 方法，<br>预先准备对象需要的资源。__wakeup() 经常用在反序列化操作中，<br>例如重新建立数据库连接，或执行其它初始化操作。</p>
+<h3 id="6-toString"><a href="#6-toString" class="headerlink" title="6. __toString"></a>6. __toString</h3><p>用于当直接echo $obj（一个对象）时该显示什么内容，必须返回一个字符串且不能在方法内抛出异常。</p>
+<h3 id="7-invoke"><a href="#7-invoke" class="headerlink" title="7. __invoke"></a>7. __invoke</h3><p>当尝试以调用函数的方式调用一个对象时，__invoke() 方法会被自动调用，例如</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function __invoke($x) &#123;</span><br><span class="line">  var_dump($x);</span><br><span class="line">&#125; </span><br><span class="line">$obj = new CallableClass;</span><br><span class="line">$obj(5);会输出int(5)</span><br></pre></td></tr></table></figure>
-<ol start="8">
-<li>__set_state</li>
-</ol>
-<p>调用 var_export() 导出类时，此静态 方法会被调用。</p>
+<h3 id="8-set-state"><a href="#8-set-state" class="headerlink" title="8. __set_state"></a>8. __set_state</h3><p>调用 var_export() 导出类时，此静态 方法会被调用。</p>
 <p>本方法的唯一参数是一个数组，其中包含按 array(‘property’ =&gt; value, …) 格式排列的类属性。</p>
-<ol start="9">
-<li>__clone</li>
-</ol>
-<p>对象复制可以通过 clone 关键字来完成（如果可能，这将调用对象的 __clone() 方法）。</p>
+<h3 id="9-clone"><a href="#9-clone" class="headerlink" title="9. __clone"></a>9. __clone</h3><p>对象复制可以通过 clone 关键字来完成（如果可能，这将调用对象的 __clone() 方法）。</p>
 <p>对象中的 __clone() 方法不能被直接调用。</p>
-<ol start="10">
-<li>$copy_of_object = clone $object;</li>
-</ol>
-<p>当对象被复制后，PHP 5 会对对象的所有属性执行一个浅复制（shallow copy）。所有的引用属性 仍然会是一个指向原来的变量的引用。当复制完成时，如果定义了 <strong>clone() 方法，则新创建的对象（复制生成的对象）中的 </strong>clone() 方法会被调用，可用于修改属性的值（如果有必要的话）。</p>
-<ol start="11">
-<li>__debugInfo</li>
-</ol>
-<p>当var_dumo(new Class)（参数为一个对象时），该方法可以控制显示的内容，若没有定义此方法，var_dump()将默认展示对象的所有属性和方法。</p>
+<h3 id="10-copy-of-object-clone-object"><a href="#10-copy-of-object-clone-object" class="headerlink" title="10. $copy_of_object = clone $object;"></a>10. $copy_of_object = clone $object;</h3><p>当对象被复制后，PHP 5 会对对象的所有属性执行一个浅复制（shallow copy）。<br>所有的引用属性 仍然会是一个指向原来的变量的引用。<br>当复制完成时，如果定义了 <strong>clone() 方法，<br>则新创建的对象（复制生成的对象）中的 </strong>clone() 方法会被调用，<br>可用于修改属性的值（如果有必要的话）。</p>
+<h3 id="11-debugInfo"><a href="#11-debugInfo" class="headerlink" title="11. __debugInfo"></a>11. __debugInfo</h3><p>当var_dumo(new Class)（参数为一个对象时），<br>该方法可以控制显示的内容，<br>若没有定义此方法，<br>var_dump()将默认展示对象的所有属性和方法。</p>
 <hr>
 <h2 id="6-static、-this、self-区别"><a href="#6-static、-this、self-区别" class="headerlink" title="6.static、$this、self 区别"></a>6.static、$this、self 区别</h2><p>$this通俗解释就是当前类的一个实例。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">  public static function className() &#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">  public static function test() &#123;</span><br><span class="line">    self::className();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A &#123;</span><br><span class="line">  public static function className()&#123;</span><br><span class="line">    echo __CLASS__;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B::test(); //这将打印出来A</span><br></pre></td></tr></table></figure>
@@ -203,27 +179,30 @@
 <p>（因此final和abstract不能同时出现）</p>
 <hr>
 <h2 id="8-OOP思想"><a href="#8-OOP思想" class="headerlink" title="8.OOP思想"></a>8.OOP思想</h2><p>简单理解：</p>
-<p>面向对象的编程就是编出一个人来，这个人可以做很多种动作，跑，跳，走，举手…他能做什么取决于你如何组合这些动作，有些动作在一些功能中是不用的。</p>
-<p>而层次化的编程（面向过程）就是造出一个具体的工具，他只能干这样一件事，条件——结果。</p>
+<p>面向对象的编程就是编出一个人来，<br>这个人可以做很多种动作，跑，跳，走，举手…<br>他能做什么取决于你如何组合这些动作，<br>有些动作在一些功能中是不用的。</p>
+<p>而层次化的编程（面向过程）就是造出一个具体的工具，<br>他只能干这样一件事，条件——结果。</p>
 <hr>
-<h2 id="9-抽象类、接口-分别使用场景"><a href="#9-抽象类、接口-分别使用场景" class="headerlink" title="9.抽象类、接口 分别使用场景"></a>9.抽象类、接口 分别使用场景</h2><p>接口 通常是为了抽象一种行为，接口是一种规范，在设计上的意义是为了功能模块间的解耦，方便后面的功能扩展、维护，接口不能有具体的方法。</p>
-<p>抽象类 可以有具体的方法，也可以有抽象方法，一旦一个类有抽象方法，这个类就必须声明为抽象类，很多时候是为子类提供一些共用方法。</p>
-<p>所以，抽象类是为了简化接口的实现，他不仅提供了公共方法的实现，让你可以快速开发，又允许你的类完全可以自己实现所有的方法，不会出现紧耦合的问题。</p>
+<h2 id="9-抽象类、接口-分别使用场景"><a href="#9-抽象类、接口-分别使用场景" class="headerlink" title="9.抽象类、接口 分别使用场景"></a>9.抽象类、接口 分别使用场景</h2><p>接口 通常是为了抽象一种行为，<br>接口是一种规范，<br>在设计上的意义是为了功能模块间的解耦，<br>方便后面的功能扩展、维护，接口不能有具体的方法。</p>
+<p>抽象类 可以有具体的方法，<br>也可以有抽象方法，<br>一旦一个类有抽象方法，<br>这个类就必须声明为抽象类，<br>很多时候是为子类提供一些共用方法。</p>
+<p>所以，抽象类是为了简化接口的实现，<br>他不仅提供了公共方法的实现，<br>让你可以快速开发，<br>又允许你的类完全可以自己实现所有的方法，<br>不会出现紧耦合的问题。</p>
 <p>应用场合很简单了</p>
 <p>1 优先定义接口</p>
 <p>2 如果有多个接口实现有公用的部分，则使用抽象类，然后集成它。</p>
-<p>举个简单的例子：有一个动物接口，内有动物叫声和动物说你好两个方法，在实现该接口时各个动物的叫声肯定是不同的，但是他们都在说你好是相同的，此时就可以用抽象类，把相同的说你好的方法抽象出去，就不用在每个动物类中写了。</p>
+<p>举个简单的例子：<br>有一个动物接口，<br>内有动物叫声和动物说你好两个方法，<br>在实现该接口时各个动物的叫声肯定是不同的，<br>但是他们都在说你好是相同的，<br>此时就可以用抽象类，<br>把相同的说你好的方法抽象出去，<br>就不用在每个动物类中写了。</p>
 <hr>
-<h2 id="10-Trait-是什么东西"><a href="#10-Trait-是什么东西" class="headerlink" title="10.Trait 是什么东西"></a>10.Trait 是什么东西</h2><p>Trait 是为类似 PHP 的单继承语言而准备的一种代码复用机制。Trait 为了减少单继承语言的限制，使开发人员能够自由地在不同层次结构内独立的类中复用 method。Trait 和 Class 组合的语义定义了一种减少复杂性的方式，避免传统多继承和 Mixin 类相关典型问题。</p>
-<p>Trait 和 Class 相似，但仅仅旨在用细粒度和一致的方式来组合功能。 无法通过 trait 自身来实例化。它为传统继承增加了水平特性的组合；也就是说，应用的几个 Class 之间不需要继承。</p>
-<p>简单理解：Trait为不支持多继承的php实现了多继承，使用时不是用extends继承，而是在类内部用 use 类名 表示。</p>
-<p>重名方法优先级问题：当前类的成员覆盖 trait 的方法，而 trait 则覆盖被继承的方法。</p>
+<h2 id="10-Trait-是什么东西"><a href="#10-Trait-是什么东西" class="headerlink" title="10.Trait 是什么东西"></a>10.Trait 是什么东西</h2><p>Trait 是为类似 PHP 的单继承语言而准备的一种代码复用机制。</p>
+<p>Trait 为了减少单继承语言的限制，使开发人员能够自由地在不同层次结构内独立的类中复用 method。</p>
+<p>Trait 和 Class 组合的语义定义了一种减少复杂性的方式，</p>
+<p>避免传统多继承和 Mixin 类相关典型问题。</p>
+<p>Trait 和 Class 相似，但仅仅旨在用细粒度和一致的方式来组合功能。<br>无法通过 trait 自身来实例化。<br>它为传统继承增加了水平特性的组合；也就是说，应用的几个 Class 之间不需要继承。</p>
+<p>简单理解：<br>Trait为不支持多继承的php实现了多继承，<br>使用时不是用extends继承，<br>而是在类内部用 use 类名 表示。</p>
+<p>重名方法优先级问题：<br>当前类的成员覆盖 trait 的方法，而 trait 则覆盖被继承的方法。</p>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/10/php常识（一）/" data-id="cjspyo79c000f0vqxbnwvidlz" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/20/php常识（一）/" data-id="cjxk8oa4j000j1jhn1nz6eeek" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -233,6 +212,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/08/01/php常识（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          php常识
+        
+      </div>
+    </a>
   
   
     <a href="/2016/07/06/php常用函数/" id="article-nav-older" class="article-nav-link-wrap">
@@ -248,18 +236,6 @@
 
 
 
-
-
-  <div id="comments" class="comments">
-  <div id="SOHUCS" sid="php常识（一）"></div>
-</div>
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyu3LKCre",
-        conf: "82a8e5381284b5e822781a57a3b820f4"
-    });
-</script>
 
 
 </section>
@@ -301,7 +277,7 @@
     <h2 class="author">xiao-linxin</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
       <a href="/categories"><div><strong>4</strong><br>分类</div></a>
       <a href="/tags"><div><strong>3</strong><br>标签</div></a>
     </div>
