@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="xiao-linxin">
 <meta property="og:description" content="php常识（二） 11.echo、print、print_r 区别(区分出表达式与语句的区别)：echo，print是语言结构，print_r和var_dump是常规功能。 print并且echo或多或少相同; 它们都是显示字符串的语言结构。差异很微妙：print返回值为1，因此可以在表达式中使用，但echo具有void返回类型。echo可以采用多个参数，尽管这种用法很少见;echo比print快">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-01T10:29:52.141Z">
+<meta property="og:updated_time" content="2019-07-02T10:21:40.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php常识">
 <meta name="twitter:description" content="php常识（二） 11.echo、print、print_r 区别(区分出表达式与语句的区别)：echo，print是语言结构，print_r和var_dump是常规功能。 print并且echo或多或少相同; 它们都是显示字符串的语言结构。差异很微妙：print返回值为1，因此可以在表达式中使用，但echo具有void返回类型。echo可以采用多个参数，尽管这种用法很少见;echo比print快">
@@ -63,6 +63,10 @@
         
           <a href="/tags" title="Tags">
             <li>标签</li>
+          </a>
+        
+          <a href="/search" title="search">
+            <li>搜索</li>
           </a>
         
     </ul>
@@ -128,6 +132,7 @@
 <p>此外也和构造函数一样，子类如果自己没有定义析构函数则会继承父类的。</p>
 <p>析构函数即使在使用 exit() 终止脚本运行时也会被调用。</p>
 <p>在析构函数中调用 exit() 将会中止其余关闭操作的运行。</p>
+<hr>
 <h2 id="13-static-作用（区分类与函数内）手册-、SOF"><a href="#13-static-作用（区分类与函数内）手册-、SOF" class="headerlink" title="13.static 作用（区分类与函数内）手册 、SOF"></a>13.static 作用（区分类与函数内）手册 、SOF</h2><p>声明类属性或方法为静态，就可以不实例化类而直接访问。静态属性不能通过一个类已实例化的对象来访问（但静态方法可以）。</p>
 <p>为了兼容 PHP 4，如果没有指定访问控制，属性和方法默认为公有。</p>
 <p>由于静态方法不需要通过对象即可调用，所以伪变量 $this 在静态方法中不可用。</p>
@@ -137,23 +142,32 @@
 <p>也可以用一个值等于类名的字符串变量来动态调用类。但该变量的值不能为关键字 self，parent 或 static，比如有个class A{}， 则可以用$a=’A’; $a::这样调用</p>
 <p>在类之外（即：在函数中），static变量是在函数退出时不会丢失其值的变量。在同一函数的不同调用中维护的变量只有一个值。从PHP手册的例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function test()&#123;</span><br><span class="line"></span><br><span class="line">    static $a = 0;</span><br><span class="line"></span><br><span class="line">    echo $a;</span><br><span class="line"></span><br><span class="line">    $a++;&#125;</span><br><span class="line"></span><br><span class="line">test();  // prints 0</span><br><span class="line"></span><br><span class="line">test();  // prints 1</span><br><span class="line"></span><br><span class="line">test();  // prints 2</span><br></pre></td></tr></table></figure>
+<hr>
 <h2 id="14-toString-作用"><a href="#14-toString-作用" class="headerlink" title="14.__toString() 作用"></a>14.__toString() 作用</h2><p>用于一个类被当成字符串时应怎样回应。</p>
 <p>例如 echo $obj; （$obj为一个对象） 应该显示些什么。</p>
 <p>此方法必须返回一个字符串，否则将发出一条E_RECOVERABLE_ERROR 级别的致命错误。</p>
 <p>类似与Java的toString方法。</p>
+<hr>
 <h2 id="15-单引号’与双引号”区别"><a href="#15-单引号’与双引号”区别" class="headerlink" title="15.单引号’与双引号”区别"></a>15.单引号’与双引号”区别</h2><p>单引号字符串几乎完全“按原样”显示。变量和大多数转义序列都不会被解释。例外情况是，要显示单引号字符，必须使用反斜杠\’转义它，要显示反斜杠字符，必须使用另一个反斜杠转义它\。</p>
 <p>双引号字符串将显示一系列转义字符（包括一些正则表达式），并且将解析字符串中的变量。这里重要的一点是，您可以使用花括号来隔离要解析的变量的名称。例如，假设您有变量$type，那么您echo “The $type are”将查找该变量$type。绕过这个用途echo “The {$type} are”您可以在美元符号之前或之后放置左括号。看一下字符串解析，看看如何使用数组变量等。</p>
 <p>Heredoc字符串语法就像双引号字符串一样。它始于&lt;&lt;&lt;。在此运算符之后，提供标识符，然后提供换行符。字符串本身如下，然后再次使用相同的标识符来关闭引号。您不需要在此语法中转义引号。</p>
 <p>Nowdoc（自PHP 5.3.0开始）字符串语法基本上类似于单引号字符串。不同之处在于，甚至不需要转义单引号或反斜杠。nowdoc用与heredocs相同的&lt;&lt;&lt;序列标识，但后面的标识符用单引号括起来，例如&lt;&lt;&lt;’EOT’。在nowdoc中没有解析。</p>
+<hr>
 <h2 id="16-常见-HTTP-状态码，分别代表什么含义，301-什么意思-404-呢"><a href="#16-常见-HTTP-状态码，分别代表什么含义，301-什么意思-404-呢" class="headerlink" title="16.常见 HTTP 状态码，分别代表什么含义，301 什么意思 404 呢?"></a>16.常见 HTTP 状态码，分别代表什么含义，301 什么意思 404 呢?</h2><p>1xx消息：这一类型的状态码，代表请求已被接受，需要继续处理。由于HTTP/1.0协议中没有定义任何1xx状态码，所以除非在某些试验条件下，服务器禁止向此类客户端发送1xx响应。<br>2xx成功：这一类型的状态码，代表请求已成功被服务器接收、理解、并接受<br>200 OK：请求已成功，请求所希望的响应头或数据体将随此响应返回。实际的响应将取决于所使用的请求方法。在GET请求中，响应将包含与请求的资源相对应的实体。在POST请求中，响应将包含描述或操作结果的实体<br>202 Accepted：服务器已接受请求，但尚未处理。最终该请求可能会也可能不会被执行，并且可能在处理发生时被禁止。<br>204 No Content：服务器成功处理了请求，没有返回任何内容<br>3xx重定向：这类状态码代表需要客户端采取进一步的操作才能完成请求。通常，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的Location域中指明。<br>301 Moved Permanently：被请求的资源已永久移动到新位置，并且将来任何对此资源的引用都应该使用本响应返回的若干个URI之一。如果可能，拥有链接编辑功能的客户端应当自动把请求的地址修改为从服务器反馈回来的地址。除非额外指定，否则这个响应也是可缓存的。新的永久性的URI应当在响应的Location域中返回。除非这是一个HEAD请求，否则响应的实体中应当包含指向新的URI的超链接及简短说明。如果这不是一个GET或者HEAD请求，那么浏览器禁止自动进行重定向，除非得到用户的确认，因为请求的条件可能因此发生变化。注意：对于某些使用HTTP/1.0协议的浏览器，当它们发送的POST请求得到了一个301响应的话，接下来的重定向请求将会变成GET方式。<br>4xx客户端错误：这类的状态码代表了客户端看起来可能发生了错误，妨碍了服务器的处理。除非响应的是一个HEAD请求，否则服务器就应该返回一个解释当前错误状况的实体，以及这是临时的还是永久性的状况。这些状态码适用于任何请求方法。浏览器应当向用户显示任何包含在此类错误响应中的实体内容<br>400 Bad Request：由于明显的客户端错误（例如，格式错误的请求语法，太大的大小，无效的请求消息或欺骗性路由请求），服务器不能或不会处理该请求<br>401 Unauthorized：类似于403 Forbidden，401语义即“未认证”，即用户没有必要的凭据。[32]该状态码表示当前请求需要用户验证。该响应必须包含一个适用于被请求资源的WWW-Authenticate信息头用以询问用户信息。客户端可以重复提交一个包含恰当的Authorization头信息的请求。<br>403 Forbidden：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。如果这不是一个HEAD请求，而且服务器希望能够讲清楚为何请求不能被执行，那么就应该在实体内描述拒绝的原因。当然服务器也可以返回一个404响应，假如它不希望让客户端获得任何信息。<br>404 Not Found：请求失败，请求所希望得到的资源未被在服务器上发现，但允许用户的后续请求。[35]没有信息能够告诉用户这个状况到底是暂时的还是永久的。假如服务器知道情况的话，应当使用410状态码来告知旧资源因为某些内部的配置机制问题，已经永久的不可用，而且没有任何可以跳转的地址。404这个状态码被广泛应用于当服务器不想揭示到底为何请求被拒绝或者没有其他适合的响应可用的情况下。<br>405 Method Not Allowed：请求行中指定的请求方法不能被用于请求相应的资源。<br>408 Request Timeout：请求超时<br>5xx服务器错误：表示服务器无法完成明显有效的请求。[56]这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。除非这是一个HEAD请求，否则服务器应当包含一个解释当前错误状态以及这个状况是临时的还是永久的解释信息实体。浏览器应当向用户展示任何在当前响应中被包含的实体。这些状态码适用于任何响应方法<br>500 Internal Server Error：通用错误消息，服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。没有给出具体错误信息<br>502 Bad Gateway：作为网关或者代理工作的服务器尝试执行请求时，从上游服务器接收到无效的响应<br>503 Service Unavailable：由于临时的服务器维护或者过载，服务器当前无法处理请求。这个状况是暂时的，并且将在一段时间以后恢复。<br>504 Gateway Timeout：作为网关或者代理工作的服务器尝试执行请求时，未能及时从上游服务器（URI标识出的服务器，例如HTTP、FTP、LDAP）或者辅助服务器（例如DNS）收到响应。注意：某些代理服务器在DNS查询超时时会返回400或者500错误。</p>
-<h2 id="17-Autoload、Composer-原理-PSR-4-、原理"><a href="#17-Autoload、Composer-原理-PSR-4-、原理" class="headerlink" title="17.Autoload、Composer 原理 PSR-4 、原理"></a>17.Autoload、Composer 原理 PSR-4 、原理</h2><p>Autoload机制可以使得PHP程序有可能在使用类时才自动包含类文件，而不是一开始就将所有的类文件include进来，这种机制也称为lazy loading(懒加载)</p>
+<hr>
+<h2 id="17-autoload、Composer-原理-PSR-4-、原理（php7-2废除autoload函数）"><a href="#17-autoload、Composer-原理-PSR-4-、原理（php7-2废除autoload函数）" class="headerlink" title="17.autoload、Composer 原理 PSR-4 、原理（php7.2废除autoload函数）"></a>17.<strong>autoload、Composer 原理 PSR-4 、原理（php7.2废除</strong>autoload函数）</h2><p>autoload机制可以使得PHP程序有可能在使用类时才自动包含类文件，而不是一开始就将所有的类文件include进来，这种机制也称为lazy loading(懒加载)。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function __autoload($classname)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  $classpath=&quot;./&quot;.$classname.&apos;.class.php&apos;;</span><br><span class="line"></span><br><span class="line">  if(file_exists($classpath))</span><br><span class="line"></span><br><span class="line">  &#123;    require_once($classpath);  &#125;</span><br><span class="line"></span><br><span class="line">  else</span><br><span class="line"></span><br><span class="line">  &#123;    echo &apos;class file&apos;.$classpath.&apos;not found!&apos;;   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> $person = new Person(”Altair”, 6);</span><br><span class="line"></span><br><span class="line"> var_dump ($person);</span><br></pre></td></tr></table></figure>
+<p>通常PHP在使用一个类时，如果发现这个类没有加载，就会自动运行__autoload()函数，在这个函数中我们可以加载需要使用的类。</p>
+<p>__autoload()至少要做三件事，</p>
+<blockquote>
+<p>1：根据类名确定类文件名。<br>2：确定类文件所在的磁盘路径(类与调用它们的PHP程序文件在同一个文件夹下)。<br>3：将类从磁盘文件中加载到系统中(php7.2废除__autoload函数，建议使用spl_autoload_register() 实现相同功能)</p>
+</blockquote>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/01/php常识（二）/" data-id="cjxlm6l7t000owwhnyrlpt72c" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/08/01/php常识（二）/" data-id="cjxlqphbv000kyahny8mfyrbv" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -205,6 +219,10 @@
         
           <a href="/tags" title="Tags">
             <li>标签</li>
+          </a>
+        
+          <a href="/search" title="search">
+            <li>搜索</li>
           </a>
         
     </ul>
