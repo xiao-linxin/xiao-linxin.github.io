@@ -70,6 +70,85 @@
 
         <section id="main">
   
+    <article id="post-php算法" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/01/php算法/" class="article-date">
+  <time class="post-time" datetime="2016-08-31T16:00:00.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br>
+    <span class="post-day">01</span>
+  </time>
+</a>
+  </div>
+
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/01/php算法/">php算法</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2016/09/01/php算法/" class="leancloud_visitors" data-flag-title="php算法">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="php算法"><a href="#php算法" class="headerlink" title="php算法"></a>php算法</h1><hr>
+<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function maopao($arr) &#123;</span><br><span class="line">    $len = count($arr);</span><br><span class="line">    $n = count($arr) - 1;</span><br><span class="line">    for ($i = 0; $i &lt; $len; $i++) &#123;</span><br><span class="line">        for ($j = 0; $j &lt; $n; $j++) &#123;</span><br><span class="line">            if ($arr[$j] &gt; $arr[$j + 1]) &#123;</span><br><span class="line">                $tmp = $arr[$j];</span><br><span class="line">                $arr[$j] = $arr[$j + 1];</span><br><span class="line">                $arr[$j + 1] = $tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-快速排序"><a href="#2-快速排序" class="headerlink" title="2.快速排序"></a>2.快速排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($array) &#123;</span><br><span class="line">    if (count($array) &lt;= 1) return $array;</span><br><span class="line">    $key = $array[0];</span><br><span class="line">    $left_arr = array();</span><br><span class="line">    $right_arr = array();</span><br><span class="line">    for ($i=1; $i&lt;count($array); $i++)&#123;</span><br><span class="line">        if ($array[$i] &lt;= $key)</span><br><span class="line">            $left_arr[] = $array[$i];</span><br><span class="line">        else</span><br><span class="line">            $right_arr[] = $array[$i];</span><br><span class="line">    &#125;</span><br><span class="line">    $left_arr = quick_sort($left_arr);</span><br><span class="line">    $right_arr = quick_sort($right_arr);</span><br><span class="line">    return array_merge($left_arr, array($key), $right_arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="3-二分查找"><a href="#3-二分查找" class="headerlink" title="3.二分查找"></a>3.二分查找</h2><p><a href="https://blog.csdn.net/nuli888/article/details/52144044" target="_blank" rel="noopener">php二分查找、顺序查找算法</a></p>
+<hr>
+<h2 id="4-查找算法-KMP"><a href="#4-查找算法-KMP" class="headerlink" title="4.查找算法 KMP"></a>4.查找算法 KMP</h2><p><a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">从头到尾彻底理解KMP</a></p>
+<hr>
+<h2 id="5-深度、广度优先搜索"><a href="#5-深度、广度优先搜索" class="headerlink" title="5.深度、广度优先搜索"></a>5.深度、广度优先搜索</h2><p><a href="https://www.jianshu.com/p/b086986969e6" target="_blank" rel="noopener">DFS（深度优先搜索）和BFS(广度优先搜索)</a><br><a href="https://juejin.im/post/5a32688b5188254dd9366d6a" target="_blank" rel="noopener">图的广度优先和深度优先遍历（BFS和DFS）</a><br><a href="http://www.blogjava.net/fancydeepin/archive/2013/02/03/395073.html" target="_blank" rel="noopener">二叉树的深度优先遍历与广度优先遍历 [ C++ 实现 ]</a><br><a href="https://www.cnblogs.com/zemliu/archive/2012/09/24/2700878.html" target="_blank" rel="noopener">PHP 二叉树的深度优先与广度优先遍历</a></p>
+<hr>
+<h2 id="6-LRU-缓存淘汰算法"><a href="#6-LRU-缓存淘汰算法" class="headerlink" title="6.LRU 缓存淘汰算法"></a>6.LRU 缓存淘汰算法</h2><p><a href="https://blog.csdn.net/youyangyouni/article/details/80988852#commentBox" target="_blank" rel="noopener">LRU算法(php实现)</a></p>
+<hr>
+
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/01/php算法/" data-id="cjxmdboxa000c8uhnr3gx3eok" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-php实践" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/01/php实践/" class="article-date">
@@ -141,86 +220,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/01/php实践/" data-id="cjxmd3ccq00036vhnp5c99amm" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-php算法" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/01/php算法/" class="article-date">
-  <time class="post-time" datetime="2016-08-31T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br>
-    <span class="post-day">01</span>
-  </time>
-</a>
-  </div>
-
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/01/php算法/">php算法</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/php/">php</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2016/09/01/php算法/" class="leancloud_visitors" data-flag-title="php算法">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="php算法"><a href="#php算法" class="headerlink" title="php算法"></a>php算法</h1><hr>
-<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function maopao($arr) &#123;</span><br><span class="line">    $len = count($arr);</span><br><span class="line">    $n = count($arr) - 1;</span><br><span class="line">    for ($i = 0; $i &lt; $len; $i++) &#123;</span><br><span class="line">        for ($j = 0; $j &lt; $n; $j++) &#123;</span><br><span class="line">            if ($arr[$j] &gt; $arr[$j + 1]) &#123;</span><br><span class="line">                $tmp = $arr[$j];</span><br><span class="line">                $arr[$j] = $arr[$j + 1];</span><br><span class="line">                $arr[$j + 1] = $tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="2-快速排序"><a href="#2-快速排序" class="headerlink" title="2.快速排序"></a>2.快速排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($array) &#123;</span><br><span class="line">    if (count($array) &lt;= 1) return $array;</span><br><span class="line">    $key = $array[0];</span><br><span class="line">    $left_arr = array();</span><br><span class="line">    $right_arr = array();</span><br><span class="line">    for ($i=1; $i&lt;count($array); $i++)&#123;</span><br><span class="line">        if ($array[$i] &lt;= $key)</span><br><span class="line">            $left_arr[] = $array[$i];</span><br><span class="line">        else</span><br><span class="line">            $right_arr[] = $array[$i];</span><br><span class="line">    &#125;</span><br><span class="line">    $left_arr = quick_sort($left_arr);</span><br><span class="line">    $right_arr = quick_sort($right_arr);</span><br><span class="line">    return array_merge($left_arr, array($key), $right_arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="3-二分查找"><a href="#3-二分查找" class="headerlink" title="3.二分查找"></a>3.二分查找</h2><p><a href="https://blog.csdn.net/nuli888/article/details/52144044" target="_blank" rel="noopener">php二分查找、顺序查找算法</a></p>
-<hr>
-<h2 id="4-查找算法-KMP"><a href="#4-查找算法-KMP" class="headerlink" title="4.查找算法 KMP"></a>4.查找算法 KMP</h2><p><a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">从头到尾彻底理解KMP</a></p>
-<hr>
-<h2 id="5-深度、广度优先搜索"><a href="#5-深度、广度优先搜索" class="headerlink" title="5.深度、广度优先搜索"></a>5.深度、广度优先搜索</h2><p><a href="https://www.jianshu.com/p/b086986969e6" target="_blank" rel="noopener">DFS（深度优先搜索）和BFS(广度优先搜索)</a><br><a href="https://juejin.im/post/5a32688b5188254dd9366d6a" target="_blank" rel="noopener">图的广度优先和深度优先遍历（BFS和DFS）</a><br><a href="http://www.blogjava.net/fancydeepin/archive/2013/02/03/395073.html" target="_blank" rel="noopener">二叉树的深度优先遍历与广度优先遍历 [ C++ 实现 ]</a><br><a href="https://www.cnblogs.com/zemliu/archive/2012/09/24/2700878.html" target="_blank" rel="noopener">PHP 二叉树的深度优先与广度优先遍历</a></p>
-<hr>
-<h2 id="6-LRU-缓存淘汰算法"><a href="#6-LRU-缓存淘汰算法" class="headerlink" title="6.LRU 缓存淘汰算法"></a>6.LRU 缓存淘汰算法</h2><p><a href="https://blog.csdn.net/youyangyouni/article/details/80988852#commentBox" target="_blank" rel="noopener">LRU算法(php实现)</a></p>
-<hr>
-
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/01/php算法/" data-id="cjxmd3cd100096vhnoc85ne05" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/09/01/php实践/" data-id="cjxmdboxf000e8uhnpsm2xoh7" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -305,7 +305,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/01/数据结构/" data-id="cjxmd3cd6000e6vhnnmcqaw1e" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/09/01/数据结构/" data-id="cjxmdboxi000f8uhn7r0qtykp" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -642,7 +642,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/20/php知识点/" data-id="cjxmd3cfp000w6vhnk3wgcx4q" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/20/php知识点/" data-id="cjxmdbozx000u8uhnpe6rddb5" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -783,7 +783,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/php常用函数/" data-id="cjxmd3ccy00076vhn38s7hyl0" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/06/php常用函数/" data-id="cjxmdbowy00068uhn0jbn3lr7" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -850,7 +850,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/名词备忘/" data-id="cjxmd3cd2000a6vhnplw0ib9l" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/05/名词备忘/" data-id="cjxmdbox200088uhnfl2afyma" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通用/">通用</a></li></ul>
@@ -925,7 +925,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/hexo使用步骤/" data-id="cjxmd3ccg00016vhnnj7xs4l9" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2016/07/04/hexo使用步骤/" data-id="cjxmdbovf00018uhnpyl65rs3" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -1016,9 +1016,8 @@
   
 
   <div class="widget-wrap">
-      {"title":"404","date":"2019-01-23T18:11:10.000Z","_content":"","source":"404/index.md","raw":"---\ntitle: 404\ndate: 2019-01-24 02:11:10\n---\n","updated":"2019-01-23T18:11:10.000Z","path":"404/index.html","comments":true,"layout":"page","_id":"cjxmd3ccd00006vhnwe3vicj1","content":"","site":{"data":{}},"excerpt":"","more":"","permalink":"http://yoursite.com/404/index.html","full_source":"/Users/yoko/Documents/hexo/blog/source/404/index.md","__page":true,"lang":"zh-CN","canonical_path":"404/index.html"}
-      
-  </div>
+    
+</div>
 </aside>
         
       </div>
