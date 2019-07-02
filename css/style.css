@@ -2441,3 +2441,39 @@ pre .javascript .function {
   margin-bottom: 10px;
   font-weight: bold;
 }
+.toc-article {
+  color: #777;
+  text-shadow: 0 1px #fff;
+  background: rgba(255,255,255,0.9);
+  -webkit-box-shadow: 0 -1px 4px #ccc inset;
+  -webkit-box-shadow: 0 -1px 4px #ccc inset;
+  box-shadow: 0 -1px 4px #ccc inset;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 3px;
+  line-height: 1.6em;
+  word-wrap: break-word;
+  font-size: 0.9em;
+}
+.toc-title {
+  font-size: 120%;
+}
+#toc {
+  line-height: 1em;
+  font-size: 0.9em;
+  float: right;
+}
+.toc {
+  padding: 0;
+  margin: 1em;
+  line-height: 1.8em;
+}
+.toc-child {
+  margin-left: 1em;
+}
+.toc-text {
+  color: #258fb8;
+}
+.toc-text:hover {
+  color: #000;
+}

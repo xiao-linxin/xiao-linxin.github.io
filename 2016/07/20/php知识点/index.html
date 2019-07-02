@@ -3,15 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>xiao-linxin</title>
+  <title>php知识点 | xiao-linxin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="xiao-linxin">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="php知识点 1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen()会">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php知识点">
+<meta property="og:url" content="http://yoursite.com/2016/07/20/php知识点/index.html">
 <meta property="og:site_name" content="xiao-linxin">
+<meta property="og:description" content="php知识点 1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen()会">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-02T18:07:17.305Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xiao-linxin">
+<meta name="twitter:title" content="php知识点">
+<meta name="twitter:description" content="php知识点 1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen()会">
   
     <link rel="alternate" href="/atom.xml" title="xiao-linxin" type="application/atom+xml">
   
@@ -68,262 +73,7 @@
   </div>
 </div>
 
-        <section id="main">
-  
-    <article id="post-php实践" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/01/php实践/" class="article-date">
-  <time class="post-time" datetime="2016-08-31T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br>
-    <span class="post-day">01</span>
-  </time>
-</a>
-  </div>
-
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/01/php实践/">php实践</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/php/">php</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2016/09/01/php实践/" class="leancloud_visitors" data-flag-title="php实践">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="php实践（一）"><a href="#php实践（一）" class="headerlink" title="php实践（一）"></a>php实践（一）</h1><hr>
-<h2 id="1-给定二维数组，根据某个字段排序"><a href="#1-给定二维数组，根据某个字段排序" class="headerlink" title="1.给定二维数组，根据某个字段排序"></a>1.给定二维数组，根据某个字段排序</h2><p>一组学生信息，要按年龄大小升序或降序排序（类似与sql语句的order by功能）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$arr = [</span><br><span class="line">    [&apos;id&apos; =&gt; 6, &apos;name&apos; =&gt; &apos;小明&apos;],</span><br><span class="line">    [&apos;id&apos; =&gt; 1, &apos;name&apos; =&gt; &apos;小亮&apos;],</span><br><span class="line">    [&apos;id&apos; =&gt; 13, &apos;name&apos; =&gt; &apos;小红&apos;],</span><br><span class="line">    [&apos;id&apos; =&gt; 2, &apos;name&apos; =&gt; &apos;小强&apos;],</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
-<p>答：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 方法1：手动写排序方法：</span><br><span class="line"></span><br><span class="line">/** 对给定二维数组按照某个字段升序或降序排序</span><br><span class="line"> * @param $arr 给定一个二维数组，这里的$arr</span><br><span class="line"> * @param $sortField 根据哪个字段排序，这里的id</span><br><span class="line"> * @param string $sort 升序还是降序,默认升序</span><br><span class="line"> * 思路：取出所有要排序的字段的值组成一个新数组，根据升序降序保留键值排序，此时新数组的键值顺序就是要得到的排序后的二维数组的键值顺序，然后将原二维数组按照此键值顺序排列即可。</span><br><span class="line"> * 注意：这里没有重置排序后的二维数组的索引，如需重置可自行扩展</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">private function arraySort($arr, $sortField, $sort = &apos;asc&apos;) &#123;</span><br><span class="line">    $newArr = array();</span><br><span class="line">    foreach ($arr as $key =&gt; $value) &#123;</span><br><span class="line">        $newArr[$key] = $value[$sortField];</span><br><span class="line">    &#125;</span><br><span class="line">    ($sort == &apos;asc&apos;) ? asort($newArr) : arsort($newArr);</span><br><span class="line">    foreach ($newArr as $k =&gt; $v) &#123;</span><br><span class="line">        $newArr[$k] = $arr[$k];</span><br><span class="line">    &#125;</span><br><span class="line">    return $newArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 方法2：使用php提供的排序函数array_multisort（），默认会重置排序后的索引，即从0开始顺序往下排</span><br><span class="line"></span><br><span class="line">foreach ($arr as $key =&gt; $value) &#123;</span><br><span class="line">    $id[$key] = $value[&apos;id&apos;];</span><br><span class="line">&#125;</span><br><span class="line">array_multisort($id, SORT_ASC, $arr); // 返回True or False</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="2-如何判断上传文件类型，如：仅允许-jpg-上传"><a href="#2-如何判断上传文件类型，如：仅允许-jpg-上传" class="headerlink" title="2.如何判断上传文件类型，如：仅允许 jpg 上传"></a>2.如何判断上传文件类型，如：仅允许 jpg 上传</h2><p>网上出现频率较高的一段代码：lz认为此段代码对上传文件的类型限制还是比较好的，<br>因为之前看资料说仅通过mime类型判断有时候不太靠谱，<br>而仅通过文件后缀名判断好像也不是很靠谱，<br>所以这里采用双重判断，以下代码稍微加了点注释：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$allowedExts = array(&quot;gif&quot;, &quot;jpeg&quot;, &quot;jpg&quot;, &quot;png&quot;);  // 限定可上传的文件后缀名</span><br><span class="line"></span><br><span class="line">$extension = end(explode(&quot;.&quot;, $_FILES[&quot;file&quot;][&quot;name&quot;])); // 从文件名中获取文件后缀名</span><br><span class="line"></span><br><span class="line">// 判断上传文件mime类型是下列之一且大小小于20000B且文件后缀名也符合要求</span><br><span class="line"></span><br><span class="line">if (( ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/gif&quot;) || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpeg&quot;) || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/jpg&quot;) || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/pjpeg&quot;) || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/x-png&quot;) || ($_FILES[&quot;file&quot;][&quot;type&quot;] == &quot;image/png&quot;)) &amp;&amp; ($_FILES[&quot;file&quot;][&quot;size&quot;] &lt; 20000) &amp;&amp; in_array($extension, $allowedExts)) &#123;</span><br><span class="line">    if ($_FILES[&quot;file&quot;][&quot;error&quot;] &gt; 0) &#123;</span><br><span class="line">        echo &quot;Return Code: &quot; . $_FILES[&quot;file&quot;][&quot;error&quot;] . &quot;&lt;br&gt;&quot;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        echo &quot;Upload: &quot; . $_FILES[&quot;file&quot;][&quot;name&quot;] . &quot;&lt;br&gt;&quot;;</span><br><span class="line">        echo &quot;Type: &quot; . $_FILES[&quot;file&quot;][&quot;type&quot;] . &quot;&lt;br&gt;&quot;;</span><br><span class="line">        echo &quot;Size: &quot; . ($_FILES[&quot;file&quot;][&quot;size&quot;] / 1024) . &quot; kB&lt;br&gt;&quot;;</span><br><span class="line">        echo &quot;Temp file: &quot; . $_FILES[&quot;file&quot;][&quot;tmp_name&quot;] . &quot;&lt;br&gt;&quot;; //临时文件名</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if (file_exists(&quot;upload/&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;])) &#123; </span><br><span class="line">        // 同名文件已存在时提示文件已存在</span><br><span class="line">        echo $_FILES[&quot;file&quot;][&quot;name&quot;] . &quot; already exists. &quot;; </span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;], &quot;upload/&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;]);</span><br><span class="line">        echo &quot;Stored in: &quot; . &quot;upload/&quot; . $_FILES[&quot;file&quot;][&quot;name&quot;];</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="3-不使用临时变量交换两个变量的值-a-1-b-2-gt-a-2-b-1"><a href="#3-不使用临时变量交换两个变量的值-a-1-b-2-gt-a-2-b-1" class="headerlink" title="3.不使用临时变量交换两个变量的值 $a=1; $b=2; =&gt; $a=2; $b=1;"></a>3.不使用临时变量交换两个变量的值 $a=1; $b=2; =&gt; $a=2; $b=1;</h2><p>最先想到的利用加减运算这里就不说了，因为那只适用于数字类型。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 1.字符串截取法：</span><br><span class="line">function myExchange(&amp;$a = &apos;&apos;, &amp;$b = &apos;&apos;) &#123;</span><br><span class="line">    $a = $a . $b;</span><br><span class="line">    $b = substr($a,0,-strlen($b));</span><br><span class="line">    $a = substr($a,strlen($a)-strlen($b),strlen($b));</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 2.数组法：    </span><br><span class="line">private function myExchange(&amp;$a = &apos;&apos;, &amp;$b = &apos;&apos;) &#123;</span><br><span class="line">    $a = array($a, $b);</span><br><span class="line">    $b = $a[0];</span><br><span class="line">    $a = $a[1];</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="4-strtoupper-在转换中文时存在乱码，你如何解决？php-echo-strtoupper-‘ab你好c’"><a href="#4-strtoupper-在转换中文时存在乱码，你如何解决？php-echo-strtoupper-‘ab你好c’" class="headerlink" title="4.strtoupper 在转换中文时存在乱码，你如何解决？php echo strtoupper(‘ab你好c’);"></a>4.strtoupper 在转换中文时存在乱码，你如何解决？php echo strtoupper(‘ab你好c’);</h2><p>php echo strtoupper(‘ab你好c’);（经测试中文系统下不会出现乱码，网上资料说是英文系统或部分盗版系统或因编码格式问题可能出现题述情况。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 1.mb系列函数解决（mb系列函数可以显式指明编码）</span><br><span class="line">string mb_convert_case (string $str ,int $mode [,string $encoding = mb_internal_encoding()])</span><br><span class="line"></span><br><span class="line">$mode有三种模式： </span><br><span class="line">1.MB_CASE_UPPER：转成大写 </span><br><span class="line">2.MB_CASE_LOWER：转成小写 </span><br><span class="line">3.MB_CASE_TITLE ：转成首字母大写</span><br><span class="line"></span><br><span class="line">$encoding默认使用内部编码；也可以显示使用如’UTF-8’; </span><br><span class="line">可以用echo mb_internal_encoding();来查看；</span><br><span class="line">此方法不仅可以解决中文问题，对其他问题也适用。</span><br><span class="line"></span><br><span class="line">2.手动解决：用str_split(string $string, int $split_length = 1)按每个字节切割，</span><br><span class="line">像中文能切割成三个字节。对识别到的字节若是英文字母则进行转换。</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">function mystrtoupper($a)&#123;</span><br><span class="line">    $b = str_split($a, 1);</span><br><span class="line">    $r = &apos;&apos;;</span><br><span class="line">    foreach($b as $v)&#123;</span><br><span class="line">        $v = ord($v);//对该字符转成acsii码</span><br><span class="line">        if($v &gt;= 97 &amp;&amp; $v&lt;= 122)&#123;//判断是否为小写字母</span><br><span class="line">            $v -= 32;//转换成大写字母</span><br><span class="line">        &#125;</span><br><span class="line">        $r .= chr($v);//将ascii码再转为相应的字符。</span><br><span class="line">    &#125;</span><br><span class="line">    return $r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = &apos;a中你继续F@#$%^&amp;*(BMDJFDoalsdkfjasl&apos;;echo &apos;origin string:&apos;.$a.&quot;\n&quot;;echo &apos;result string:&apos;;$r = mystrtoupper($a);</span><br><span class="line">var_dump($r);</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="5-Websocket、Long-Polling、Server-Sent-Events-SSE-区别"><a href="#5-Websocket、Long-Polling、Server-Sent-Events-SSE-区别" class="headerlink" title="5.Websocket、Long-Polling、Server-Sent Events(SSE) 区别"></a>5.Websocket、Long-Polling、Server-Sent Events(SSE) 区别</h2><p><a href="https://www.jianshu.com/p/4aa085b9984b" target="_blank" rel="noopener">Web端即时通讯技术盘点：短轮询、Comet、Websocket、SSE</a></p>
-<hr>
-<h2 id="6-”Headers-already-sent”-错误是什么意思，如何避免"><a href="#6-”Headers-already-sent”-错误是什么意思，如何避免" class="headerlink" title="6.”Headers already sent” 错误是什么意思，如何避免"></a>6.”Headers already sent” 错误是什么意思，如何避免</h2><p>StackOverflow原文链接</p>
-<p>错误说明：“不能更改头信息-头已经发出”；意思大概是在你的代码中有修改header信息的代码段，但是在此代码段之前header已经发出，所以报错不能修改。</p>
-<p>如何避免：在发送header前不能有任何输出，会发送header的部分方法：</p>
-<p>header / header_remove<br>session_start / session_regenerate_id<br>setcookie / setrawcookie<br>类似于输出功能的操作（不能放在header相关处理之前）：</p>
-<p>无意的：<br>&lt;?php之前或?&gt;之后的空格<br>UTF-8编码的BOM头信息<br>以前的错误消息或通知</p>
-<p>故意的：</p>
-<p>print，echo等产生输出的输出<br>Raw <html> sections prior &lt;?php code.（抱歉没有看懂）</html></p>
-<hr>
-
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/01/php实践/" data-id="cjxma7ae90000dzhncu0w2x6c" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-php算法" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/01/php算法/" class="article-date">
-  <time class="post-time" datetime="2016-08-31T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br>
-    <span class="post-day">01</span>
-  </time>
-</a>
-  </div>
-
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/01/php算法/">php算法</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/php/">php</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2016/09/01/php算法/" class="leancloud_visitors" data-flag-title="php算法">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="php算法"><a href="#php算法" class="headerlink" title="php算法"></a>php算法</h1><hr>
-<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function maopao($arr) &#123;</span><br><span class="line">    $len = count($arr);</span><br><span class="line">    $n = count($arr) - 1;</span><br><span class="line">    for ($i = 0; $i &lt; $len; $i++) &#123;</span><br><span class="line">        for ($j = 0; $j &lt; $n; $j++) &#123;</span><br><span class="line">            if ($arr[$j] &gt; $arr[$j + 1]) &#123;</span><br><span class="line">                $tmp = $arr[$j];</span><br><span class="line">                $arr[$j] = $arr[$j + 1];</span><br><span class="line">                $arr[$j + 1] = $tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="2-快速排序"><a href="#2-快速排序" class="headerlink" title="2.快速排序"></a>2.快速排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($array) &#123;</span><br><span class="line">    if (count($array) &lt;= 1) return $array;</span><br><span class="line">    $key = $array[0];</span><br><span class="line">    $left_arr = array();</span><br><span class="line">    $right_arr = array();</span><br><span class="line">    for ($i=1; $i&lt;count($array); $i++)&#123;</span><br><span class="line">        if ($array[$i] &lt;= $key)</span><br><span class="line">            $left_arr[] = $array[$i];</span><br><span class="line">        else</span><br><span class="line">            $right_arr[] = $array[$i];</span><br><span class="line">    &#125;</span><br><span class="line">    $left_arr = quick_sort($left_arr);</span><br><span class="line">    $right_arr = quick_sort($right_arr);</span><br><span class="line">    return array_merge($left_arr, array($key), $right_arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="3-二分查找"><a href="#3-二分查找" class="headerlink" title="3.二分查找"></a>3.二分查找</h2><p><a href="https://blog.csdn.net/nuli888/article/details/52144044" target="_blank" rel="noopener">php二分查找、顺序查找算法</a></p>
-<hr>
-<h2 id="4-查找算法-KMP"><a href="#4-查找算法-KMP" class="headerlink" title="4.查找算法 KMP"></a>4.查找算法 KMP</h2><p><a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">从头到尾彻底理解KMP</a></p>
-<hr>
-<h2 id="5-深度、广度优先搜索"><a href="#5-深度、广度优先搜索" class="headerlink" title="5.深度、广度优先搜索"></a>5.深度、广度优先搜索</h2><p><a href="https://www.jianshu.com/p/b086986969e6" target="_blank" rel="noopener">DFS（深度优先搜索）和BFS(广度优先搜索)</a><br><a href="https://juejin.im/post/5a32688b5188254dd9366d6a" target="_blank" rel="noopener">图的广度优先和深度优先遍历（BFS和DFS）</a><br><a href="http://www.blogjava.net/fancydeepin/archive/2013/02/03/395073.html" target="_blank" rel="noopener">二叉树的深度优先遍历与广度优先遍历 [ C++ 实现 ]</a><br><a href="https://www.cnblogs.com/zemliu/archive/2012/09/24/2700878.html" target="_blank" rel="noopener">PHP 二叉树的深度优先与广度优先遍历</a></p>
-<hr>
-<h2 id="6-LRU-缓存淘汰算法"><a href="#6-LRU-缓存淘汰算法" class="headerlink" title="6.LRU 缓存淘汰算法"></a>6.LRU 缓存淘汰算法</h2><p><a href="https://blog.csdn.net/youyangyouni/article/details/80988852#commentBox" target="_blank" rel="noopener">LRU算法(php实现)</a></p>
-<hr>
-
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/01/php算法/" data-id="cjxma7aeo000adzhnfhnjhzsz" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-数据结构" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/01/数据结构/" class="article-date">
-  <time class="post-time" datetime="2016-08-31T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br>
-    <span class="post-day">01</span>
-  </time>
-</a>
-  </div>
-
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/01/数据结构/">数据结构</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/php/">php</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2016/09/01/数据结构/" class="leancloud_visitors" data-flag-title="数据结构">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><hr>
-<h2 id="1-堆、栈特性"><a href="#1-堆、栈特性" class="headerlink" title="1.堆、栈特性"></a>1.堆、栈特性</h2><h3 id="栈：像装数据的桶或箱子"><a href="#栈：像装数据的桶或箱子" class="headerlink" title="栈：像装数据的桶或箱子"></a>栈：像装数据的桶或箱子</h3><p>我们先从大家比较熟悉的栈说起吧，它是一种具有后进先出性质的数据结构，也就是说后存放的先取，先存放的后取。</p>
-<p>这就如同我们要取出放在箱子里面底下的东西（放入的比较早的物体），我们首先要移开压在它上面的物体（放入的比较晚的物体）。</p>
-<p>百度百科：栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</p>
-<p>栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放。</p>
-<h3 id="堆：像一棵倒过来的树"><a href="#堆：像一棵倒过来的树" class="headerlink" title="堆：像一棵倒过来的树"></a>堆：像一棵倒过来的树</h3><p>而堆就不同了，堆是一种经过排序的树形数据结构，每个结点都有一个值。</p>
-<p>通常我们所说的堆的数据结构，是指二叉堆。</p>
-<p>堆的特点是根结点的值最小（或最大），且根结点的两个子树也是一个堆。</p>
-<p>由于堆的这个特性，常用来实现优先队列，堆的存取是随意，这就如同我们在图书馆的书架上取书，虽然书的摆放是有顺序的，但是我们想取任意一本时不必像栈一样，先取出前面所有的书，书架这种机制不同于箱子，我们可以直接取出我们想要的书。</p>
-<p>百度百科：堆（操作系统）： 一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收，分配方式倒是类似于链表。</p>
-<p>堆则是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些。</p>
-<h3 id="堆和栈的区别可以引用一位前辈的比喻来看出："><a href="#堆和栈的区别可以引用一位前辈的比喻来看出：" class="headerlink" title="堆和栈的区别可以引用一位前辈的比喻来看出："></a>堆和栈的区别可以引用一位前辈的比喻来看出：</h3><p>使用栈就象我们去饭馆里吃饭，只管点菜（发出申请）、付钱、和吃（使用），吃饱了就走，不必理会切菜、洗菜等准备工作和洗碗、刷锅等扫尾工作，他的好处是快捷，但是自由度小。 </p>
-<p>使用堆就象是自己动手做喜欢吃的菜肴，比较麻烦，但是比较符合自己的口味，而且自由度大。比喻很形象，说的很通俗易懂，不知道你是否有点收获。</p>
-<hr>
-<h2 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h2><p>队列（queue）是一种采用先进先出(FIFO)策略的抽象数据结构，它的想法来自于生活中排队的策略。顾客在付款结账的时候，按照到来的先后顺序排队结账，先来的顾客先结账，后来的顾客后结账。队列的实现一般有数组实现和链表实现两种方式。<br>队列又分单链队列、循环队列、阵列队列，具体可参见<a href="https://zh.wikipedia.org/wiki/%E9%98%9F%E5%88%97" target="_blank" rel="noopener">维基</a></p>
-<hr>
-<h2 id="3-哈希表"><a href="#3-哈希表" class="headerlink" title="3.哈希表"></a>3.哈希表</h2><p>Hash表也称散列表，也有直接译作哈希表，Hash表是一种特殊的数据结构，它同数组、链表以及二叉排序树等相比较有很明显的区别，它能够快速定位到想要查找的记录，而不是与表中存在的记录的关键字进行比较来进行查找。这个源于Hash表设计的特殊性，通过把关键码值（Key value）映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做Hash函数，存放记录的数组叫做Hash表。</p>
-<h2 id="4-链表"><a href="#4-链表" class="headerlink" title="4.链表"></a>4.链表</h2><p>链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(Pointer)。由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，比另一种线性表顺序表快得多，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间，而顺序表相应的时间复杂度分别是O(logn)和O(1)。</p>
-<p>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。</p>
-
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/01/数据结构/" data-id="cjxma7aer000edzhnp0uisclz" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-php知识点" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-php知识点" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/07/20/php知识点/" class="article-date">
   <time class="post-time" datetime="2016-07-19T16:00:00.000Z" itemprop="datePublished">
@@ -339,8 +89,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/php知识点/">php知识点</a>
+    <h1 class="article-title" itemprop="name">
+      php知识点
     </h1>
   
 
@@ -650,213 +400,26 @@
     </footer>
   </div>
   
-</article>
-
-
-
-
-
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-php常用函数" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/06/php常用函数/" class="article-date">
-  <time class="post-time" datetime="2016-07-05T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br>
-    <span class="post-day">06</span>
-  </time>
-</a>
-  </div>
-
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2016/09/01/数据结构/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/06/php常用函数/">php常用函数</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/php/">php</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2016/07/06/php常用函数/" class="leancloud_visitors" data-flag-title="php常用函数">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="php常用函数"><a href="#php常用函数" class="headerlink" title="php常用函数"></a>php常用函数</h1><hr>
-<h2 id="1-数组函数"><a href="#1-数组函数" class="headerlink" title="1.数组函数"></a>1.数组函数</h2><ul>
-<li><a href="http://php.net/manual/zh/function.array-chunk.php" target="_blank" rel="noopener">array_chunk</a> // 将一个数组分割成多个</li>
-<li><a href="http://php.net/manual/zh/function.array-column.php" target="_blank" rel="noopener">array_column</a> // 返回数组中指定的一列</li>
-<li><a href="http://php.net/manual/zh/function.array-combine.php" target="_blank" rel="noopener">array_combine</a> // 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值（另一种意义的合并数组）</li>
-<li><a href="http://php.net/manual/zh/function.array-flip.php" target="_blank" rel="noopener">array_flip</a> // 交换数组中的键和值</li>
-<li><a href="http://php.net/manual/zh/function.array-key-exists.php" target="_blank" rel="noopener">array_key_exists</a> // 检查数组里是否有指定的键名或索引</li>
-<li><a href="http://php.net/manual/zh/function.array-key-first.php" target="_blank" rel="noopener">array_key_first</a> // 返回数组第一个键的键名</li>
-<li><a href="http://php.net/manual/zh/function.array-key-last.php" target="_blank" rel="noopener">array_key_last</a> // 返回数组最后一个键的键名</li>
-<li><a href="http://php.net/manual/zh/function.array-keys.php" target="_blank" rel="noopener">array_keys</a> // 返回数组键名</li>
-<li><a href="http://php.net/manual/zh/function.array-merge.php" target="_blank" rel="noopener">array_merge</a> // 合并一个或多个数组 </li>
-<li><a href="http://php.net/manual/zh/function.array-pop.php" target="_blank" rel="noopener">array_pop</a> // 弹出数组最后一个单元；出栈；删除数组最后一个单元</li>
-<li><a href="http://php.net/manual/zh/function.array-push.php" target="_blank" rel="noopener">array_push</a> // 将一个或多个单元压入数组的末尾；入栈；合并数组</li>
-<li><a href="http://php.net/manual/zh/function.array-rand.php" target="_blank" rel="noopener">array_rand</a> // 从数组中随机取出一个或多个单元</li>
-<li><a href="http://php.net/manual/zh/function.array-reverse.php" target="_blank" rel="noopener">array_reverse</a> // 返回单元顺序相反的数组</li>
-<li><a href="http://php.net/manual/zh/function.array-search.php" target="_blank" rel="noopener">array_search</a> // 在数组中搜索给定的值，如果成功则返回首个相应的键名</li>
-<li><a href="http://php.net/manual/zh/function.array-shift.php" target="_blank" rel="noopener">array_shift</a> // 将数组开头的单元移出数组</li>
-<li><a href="http://php.net/manual/zh/function.array-slice.php" target="_blank" rel="noopener">array_slice</a> // 从数组中取出一段</li>
-<li><a href="http://php.net/manual/zh/function.array-sum.php" target="_blank" rel="noopener">array_sum</a> // 对数组中所有值求和</li>
-<li><a href="http://php.net/manual/zh/function.array-unique.php" target="_blank" rel="noopener">array_unique</a> // 移除数组中重复的值</li>
-<li><a href="http://php.net/manual/zh/function.array-unshift.php" target="_blank" rel="noopener">array_unshift</a> // 在数组开头插入一个或多个单元</li>
-<li><a href="http://php.net/manual/zh/function.array-values.php" target="_blank" rel="noopener">array_values</a> // 返回数组中所有的值</li>
-<li><a href="http://php.net/manual/zh/function.arsort.php" target="_blank" rel="noopener">arsort</a> // 对数组进行逆向排序并保持索引关系</li>
-<li><a href="http://php.net/manual/zh/function.asort.php" target="_blank" rel="noopener">asort</a> // 对数组进行排序并保持索引关系</li>
-<li><a href="http://php.net/manual/zh/function.count.php" target="_blank" rel="noopener">count</a> // 计算数组中的单元数目，或对象中的属性个数</li>
-<li><a href="http://php.net/manual/zh/function.current.php" target="_blank" rel="noopener">current</a> // 返回数组中的当前单元</li>
-<li><a href="http://php.net/manual/zh/function.in-array.php" target="_blank" rel="noopener">in_array</a> // 检查数组中是否存在某个值</li>
-<li><a href="http://php.net/manual/zh/function.krsort.php" target="_blank" rel="noopener">krsort</a> // 对数组按照键名逆向排序</li>
-<li><a href="http://php.net/manual/zh/function.ksort.php" target="_blank" rel="noopener">ksort</a> // 对数组按照键名排序</li>
-<li><a href="http://php.net/manual/zh/function.list.php" target="_blank" rel="noopener">list</a> // 把数组中的值赋给一组变量</li>
-<li><a href="http://php.net/manual/zh/function.shuffle.php" target="_blank" rel="noopener">shuffle</a> // 打乱数组</li>
-<li><a href="http://php.net/manual/zh/function.sort.php" target="_blank" rel="noopener">sort</a> // 对数组排序</li>
-<li><a href="http://php.net/manual/zh/function.uasort.php" target="_blank" rel="noopener">uasort</a> // 使用用户自定义的比较函数对数组中的值进行排序并保持索引关联</li>
-<li><a href="http://php.net/manual/zh/function.uksort.php" target="_blank" rel="noopener">uksort</a> // 使用用户自定义的比较函数对数组中的键名进行排序</li>
-<li><a href="http://php.net/manual/zh/function.usort.php" target="_blank" rel="noopener">usort</a> // 使用用户自定义的比较函数对数组中的值进行排序</li>
-</ul>
-<hr>
-<h2 id="2-string-字符串-函数"><a href="#2-string-字符串-函数" class="headerlink" title="2.string(字符串)函数"></a>2.string(字符串)函数</h2><ul>
-<li><a href="http://php.net/manual/zh/function.chunk-split.php" target="_blank" rel="noopener">chunk_split</a> // 将字符串分割成小块</li>
-<li><a href="http://php.net/manual/zh/function.explode.php" target="_blank" rel="noopener">explode</a> // 使用一个字符串分割另一个字符串</li>
-<li><a href="http://php.net/manual/zh/function.implode.php" target="_blank" rel="noopener">implode</a> // 将一个一维数组的值转化为字符串</li>
-<li><a href="http://php.net/manual/zh/function.lcfirst.php" target="_blank" rel="noopener">lcfirst</a> // 使一个字符串的第一个字符小写</li>
-<li><a href="http://php.net/manual/zh/function.ltrim.php" target="_blank" rel="noopener">ltrim</a> // 删除字符串开头的空白字符（或其他字符）</li>
-<li><a href="http://php.net/manual/zh/function.md5.php" target="_blank" rel="noopener">md5</a> // 计算字符串的 MD5 散列值</li>
-<li><a href="http://php.net/manual/zh/function.money-format.php" target="_blank" rel="noopener">money_format</a> // 将数字格式化成货币字符串</li>
-<li><a href="http://php.net/manual/zh/function.nl2br.php" target="_blank" rel="noopener">nl2br</a> // 在字符串所有新行之前插入 HTML 换行标记</li>
-<li><a href="http://php.net/manual/zh/function.number-format.php" target="_blank" rel="noopener">number_format</a> // 以千位分隔符方式格式化一个数字</li>
-<li><a href="http://php.net/manual/zh/function.ord.php" target="_blank" rel="noopener">ord</a> // 返回字符的 ASCII 码值</li>
-<li><a href="http://php.net/manual/zh/function.rtrim.php" target="_blank" rel="noopener">rtrim</a> // 删除字符串末端的空白字符（或者其他字符）</li>
-<li><a href="http://php.net/manual/zh/function.str-replace.php" target="_blank" rel="noopener">str_replace</a> // 子字符串替换</li>
-<li><a href="http://php.net/manual/zh/function.str-ireplace.php" target="_blank" rel="noopener">str_ireplace</a> // str_replace 的忽略大小写版本</li>
-<li><a href="http://php.net/manual/zh/function.str-repeat.php" target="_blank" rel="noopener">str_repeat</a> // 重复一个字符串</li>
-<li><a href="http://php.net/manual/zh/function.str-shuffle.php" target="_blank" rel="noopener">str_shuffle</a> // 随机打乱一个字符串</li>
-<li><a href="http://php.net/manual/zh/function.str-split.php" target="_blank" rel="noopener">str_split</a> // 将字符串转换为数组</li>
-<li><a href="http://php.net/manual/zh/function.stripos.php" target="_blank" rel="noopener">stripos</a> // 查找字符串首次出现的位置（不区分大小写）</li>
-<li><a href="http://php.net/manual/zh/function.strpos.php" target="_blank" rel="noopener">strpos</a> // 查找字符串首次出现的位置</li>
-<li><a href="http://php.net/manual/zh/function.strstr.php" target="_blank" rel="noopener">strstr</a> // 查找字符串的首次出现</li>
-<li><a href="http://php.net/manual/zh/function.stristr.php" target="_blank" rel="noopener">stristr</a> // strstr 函数的忽略大小写版本</li>
-<li><a href="http://php.net/manual/zh/function.strlen.php" target="_blank" rel="noopener">strlen</a> // 获取字符串长度</li>
-<li><a href="http://php.net/manual/zh/function.strrchr.php" target="_blank" rel="noopener">strrchr</a> // 查找指定字符在字符串中的最后一次出现</li>
-<li><a href="http://php.net/manual/zh/function.strrev.php" target="_blank" rel="noopener">strrev</a> // 反转字符串</li>
-<li><a href="http://php.net/manual/zh/function.strripos.php" target="_blank" rel="noopener">strripos</a> // 计算指定字符串在目标字符串中最后一次出现的位置（不区分大小写）</li>
-<li><a href="http://php.net/manual/zh/function.strrpos.php" target="_blank" rel="noopener">strrpos</a> // 计算指定字符串在目标字符串中最后一次出现的位置</li>
-<li><a href="http://php.net/manual/zh/function.strtok.php" target="_blank" rel="noopener">strtok</a> // 标记分割字符串</li>
-<li><a href="http://php.net/manual/zh/function.strtolower.php" target="_blank" rel="noopener">strtolower</a> // 将字符串转化为小写</li>
-<li><a href="http://php.net/manual/zh/function.strtoupper.php" target="_blank" rel="noopener">strtoupper</a> // 将字符串转化为大写</li>
-<li><a href="http://php.net/manual/zh/function.substr-count.php" target="_blank" rel="noopener">substr_count</a> // 计算字串出现的次数</li>
-<li><a href="http://php.net/manual/zh/function.substr-replace.php" target="_blank" rel="noopener">substr_replace</a> // 替换字符串的子串</li>
-<li><a href="http://php.net/manual/zh/function.substr.php" target="_blank" rel="noopener">substr</a> // 返回字符串的子串</li>
-<li><a href="http://php.net/manual/zh/function.trim.php" target="_blank" rel="noopener">trim</a> //  去除字符串首尾处的空白字符（或者其他字符）</li>
-<li><a href="http://php.net/manual/zh/function.ucfirst.php" target="_blank" rel="noopener">ucfirst</a> // 将字符串的首字母转换为大写</li>
-<li><a href="http://php.net/manual/zh/function.ucwords.php" target="_blank" rel="noopener">ucwords</a> // 将字符串中每个单词的首字母转换为大写</li>
-<li><a href="http://php.net/manual/zh/function.wordwrap.php" target="_blank" rel="noopener">wordwrap</a> // 打断字符串为指定数量的字串</li>
-</ul>
-<hr>
-
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/06/php常用函数/" data-id="cjxma7aek0006dzhntqdqd8ri" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-名词备忘" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/05/名词备忘/" class="article-date">
-  <time class="post-time" datetime="2016-07-04T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br>
-    <span class="post-day">05</span>
-  </time>
-</a>
-  </div>
-
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          数据结构
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/05/名词备忘/">名词备忘</a>
-    </h1>
   
+    <a href="/2016/07/06/php常用函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">php常用函数</div>
+    </a>
+  
+</nav>
 
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/通用/">通用</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2016/07/05/名词备忘/" class="leancloud_visitors" data-flag-title="名词备忘">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">数组 = 数组 = 集合</span><br><span class="line">数列 = 规则数组</span><br><span class="line">函数F(x)的F只是名字</span><br><span class="line">值域 = 函数值范围</span><br><span class="line">定义域 = x取值范围</span><br><span class="line">键名 key</span><br><span class="line">值 value</span><br><span class="line">索引</span><br><span class="line">数组中的单元数目</span><br><span class="line">出栈</span><br><span class="line">入栈</span><br><span class="line">对象中的属性个数</span><br><span class="line">迭代 = 循环</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/05/名词备忘/" data-id="cjxma7aem0008dzhnb2yo219g" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通用/">通用</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
@@ -865,84 +428,6 @@
 
 
 
-
-
-  
-    <article id="post-hexo使用步骤" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/04/hexo使用步骤/" class="article-date">
-  <time class="post-time" datetime="2016-07-03T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br>
-    <span class="post-day">04</span>
-  </time>
-</a>
-  </div>
-
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/04/hexo使用步骤/">hexo使用步骤</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2016/07/04/hexo使用步骤/" class="leancloud_visitors" data-flag-title="hexo使用步骤">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/04/hexo使用步骤/" data-id="cjxma7aef0002dzhnpqeqiv8e" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
 
 </section>
         
