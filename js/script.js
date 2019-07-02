@@ -136,7 +136,6 @@
   });
 
   var searchFunc = function(path, search_id, content_id) {
-    'use strict'; //使用严格模式
     $.ajax({
       url: path,
       dataType: "xml",
@@ -161,7 +160,6 @@
           }
           // 本地搜索主要部分
           datas.forEach(function(data) {
-            console.log(data)
             var isMatch = true;
             var content_index = [];
             var data_title = data.title.trim().toLowerCase();
@@ -220,9 +218,7 @@
       }
     })
   };
-  var path = "../search.xml";
+  var path = "/search.xml";
   searchFunc(path, 'local-search-input', 'local-search-result');
-
-  console.log(page);
 
 })(jQuery);
