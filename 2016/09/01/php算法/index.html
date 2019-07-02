@@ -5,18 +5,18 @@
   
   <title>php算法 | xiao-linxin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="php算法 1.冒泡排序1234567891011121314function maopao($arr) &amp;#123;    $len = count($arr);    $n = count($arr) - 1;    for ($i = 0; $i &amp;lt; $len; $i++) &amp;#123;        for ($j = 0; $j &amp;lt; $n; $j++) &amp;#123;">
+  <meta name="description" content="1.冒泡排序1234567891011121314function maopao($arr) &amp;#123;    $len = count($arr);    $n = count($arr) - 1;    for ($i = 0; $i &amp;lt; $len; $i++) &amp;#123;        for ($j = 0; $j &amp;lt; $n; $j++) &amp;#123;">
 <meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php算法">
 <meta property="og:url" content="https://xiao-linxin.github.io/2016/09/01/php算法/index.html">
 <meta property="og:site_name" content="xiao-linxin">
-<meta property="og:description" content="php算法 1.冒泡排序1234567891011121314function maopao($arr) &amp;#123;    $len = count($arr);    $n = count($arr) - 1;    for ($i = 0; $i &amp;lt; $len; $i++) &amp;#123;        for ($j = 0; $j &amp;lt; $n; $j++) &amp;#123;">
+<meta property="og:description" content="1.冒泡排序1234567891011121314function maopao($arr) &amp;#123;    $len = count($arr);    $n = count($arr) - 1;    for ($i = 0; $i &amp;lt; $len; $i++) &amp;#123;        for ($j = 0; $j &amp;lt; $n; $j++) &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-02T18:07:17.309Z">
+<meta property="og:updated_time" content="2019-07-02T22:34:43.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php算法">
-<meta name="twitter:description" content="php算法 1.冒泡排序1234567891011121314function maopao($arr) &amp;#123;    $len = count($arr);    $n = count($arr) - 1;    for ($i = 0; $i &amp;lt; $len; $i++) &amp;#123;        for ($j = 0; $j &amp;lt; $n; $j++) &amp;#123;">
+<meta name="twitter:description" content="1.冒泡排序1234567891011121314function maopao($arr) &amp;#123;    $len = count($arr);    $n = count($arr) - 1;    for ($i = 0; $i &amp;lt; $len; $i++) &amp;#123;        for ($j = 0; $j &amp;lt; $n; $j++) &amp;#123;">
   
     <link rel="alternate" href="/atom.xml" title="xiao-linxin" type="application/atom+xml">
   
@@ -114,9 +114,20 @@
         </div>
       </header>
     
+
+    <div class="article-entry">
+      
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-冒泡排序"><span class="toc-text">1.冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-快速排序"><span class="toc-text">2.快速排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-二分查找"><span class="toc-text">3.二分查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-查找算法-KMP"><span class="toc-text">4.查找算法 KMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-深度、广度优先搜索"><span class="toc-text">5.深度、广度优先搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-LRU-缓存淘汰算法"><span class="toc-text">6.LRU 缓存淘汰算法</span></a></li></ol>
+    </div>
+
+
+    </div>
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="php算法"><a href="#php算法" class="headerlink" title="php算法"></a>php算法</h1><hr>
+        <hr>
 <h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function maopao($arr) &#123;</span><br><span class="line">    $len = count($arr);</span><br><span class="line">    $n = count($arr) - 1;</span><br><span class="line">    for ($i = 0; $i &lt; $len; $i++) &#123;</span><br><span class="line">        for ($j = 0; $j &lt; $n; $j++) &#123;</span><br><span class="line">            if ($arr[$j] &gt; $arr[$j + 1]) &#123;</span><br><span class="line">                $tmp = $arr[$j];</span><br><span class="line">                $arr[$j] = $arr[$j + 1];</span><br><span class="line">                $arr[$j + 1] = $tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="2-快速排序"><a href="#2-快速排序" class="headerlink" title="2.快速排序"></a>2.快速排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($array) &#123;</span><br><span class="line">    if (count($array) &lt;= 1) return $array;</span><br><span class="line">    $key = $array[0];</span><br><span class="line">    $left_arr = array();</span><br><span class="line">    $right_arr = array();</span><br><span class="line">    for ($i=1; $i&lt;count($array); $i++)&#123;</span><br><span class="line">        if ($array[$i] &lt;= $key)</span><br><span class="line">            $left_arr[] = $array[$i];</span><br><span class="line">        else</span><br><span class="line">            $right_arr[] = $array[$i];</span><br><span class="line">    &#125;</span><br><span class="line">    $left_arr = quick_sort($left_arr);</span><br><span class="line">    $right_arr = quick_sort($right_arr);</span><br><span class="line">    return array_merge($left_arr, array($key), $right_arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -134,7 +145,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/09/01/php算法/" data-id="cjxmdkatf0009b5hnuqtj3755" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/09/01/php算法/" data-id="cjxme45260005eghnaehumhen" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -241,10 +252,6 @@
 </div>
 
   
-
-  <div class="widget-wrap">
-    
-</div>
 </aside>
         
       </div>

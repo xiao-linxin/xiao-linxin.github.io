@@ -111,9 +111,15 @@
         </div>
       </header>
     
+
+    <div class="article-entry">
+      
+
+    </div>
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="php实践（一）"><a href="#php实践（一）" class="headerlink" title="php实践（一）"></a>php实践（一）</h1><hr>
+        <hr>
 <h2 id="1-给定二维数组，根据某个字段排序"><a href="#1-给定二维数组，根据某个字段排序" class="headerlink" title="1.给定二维数组，根据某个字段排序"></a>1.给定二维数组，根据某个字段排序</h2><p>一组学生信息，要按年龄大小升序或降序排序（类似与sql语句的order by功能）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$arr = [</span><br><span class="line">    [&apos;id&apos; =&gt; 6, &apos;name&apos; =&gt; &apos;小明&apos;],</span><br><span class="line">    [&apos;id&apos; =&gt; 1, &apos;name&apos; =&gt; &apos;小亮&apos;],</span><br><span class="line">    [&apos;id&apos; =&gt; 13, &apos;name&apos; =&gt; &apos;小红&apos;],</span><br><span class="line">    [&apos;id&apos; =&gt; 2, &apos;name&apos; =&gt; &apos;小强&apos;],</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
 <p>答：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 方法1：手动写排序方法：</span><br><span class="line"></span><br><span class="line">/** 对给定二维数组按照某个字段升序或降序排序</span><br><span class="line"> * @param $arr 给定一个二维数组，这里的$arr</span><br><span class="line"> * @param $sortField 根据哪个字段排序，这里的id</span><br><span class="line"> * @param string $sort 升序还是降序,默认升序</span><br><span class="line"> * 思路：取出所有要排序的字段的值组成一个新数组，根据升序降序保留键值排序，此时新数组的键值顺序就是要得到的排序后的二维数组的键值顺序，然后将原二维数组按照此键值顺序排列即可。</span><br><span class="line"> * 注意：这里没有重置排序后的二维数组的索引，如需重置可自行扩展</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">private function arraySort($arr, $sortField, $sort = &apos;asc&apos;) &#123;</span><br><span class="line">    $newArr = array();</span><br><span class="line">    foreach ($arr as $key =&gt; $value) &#123;</span><br><span class="line">        $newArr[$key] = $value[$sortField];</span><br><span class="line">    &#125;</span><br><span class="line">    ($sort == &apos;asc&apos;) ? asort($newArr) : arsort($newArr);</span><br><span class="line">    foreach ($newArr as $k =&gt; $v) &#123;</span><br><span class="line">        $newArr[$k] = $arr[$k];</span><br><span class="line">    &#125;</span><br><span class="line">    return $newArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 方法2：使用php提供的排序函数array_multisort（），默认会重置排序后的索引，即从0开始顺序往下排</span><br><span class="line"></span><br><span class="line">foreach ($arr as $key =&gt; $value) &#123;</span><br><span class="line">    $id[$key] = $value[&apos;id&apos;];</span><br><span class="line">&#125;</span><br><span class="line">array_multisort($id, SORT_ASC, $arr); // 返回True or False</span><br></pre></td></tr></table></figure></p>
 <hr>
@@ -141,7 +147,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/09/01/php实践/" data-id="cjxmdkat60003b5hnwowc3ge1" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/09/01/php实践/" data-id="cjxme451a0000eghnpvoh58id" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -200,9 +206,15 @@
         </div>
       </header>
     
+
+    <div class="article-entry">
+      
+
+    </div>
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="php算法"><a href="#php算法" class="headerlink" title="php算法"></a>php算法</h1><hr>
+        <hr>
 <h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function maopao($arr) &#123;</span><br><span class="line">    $len = count($arr);</span><br><span class="line">    $n = count($arr) - 1;</span><br><span class="line">    for ($i = 0; $i &lt; $len; $i++) &#123;</span><br><span class="line">        for ($j = 0; $j &lt; $n; $j++) &#123;</span><br><span class="line">            if ($arr[$j] &gt; $arr[$j + 1]) &#123;</span><br><span class="line">                $tmp = $arr[$j];</span><br><span class="line">                $arr[$j] = $arr[$j + 1];</span><br><span class="line">                $arr[$j + 1] = $tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="2-快速排序"><a href="#2-快速排序" class="headerlink" title="2.快速排序"></a>2.快速排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($array) &#123;</span><br><span class="line">    if (count($array) &lt;= 1) return $array;</span><br><span class="line">    $key = $array[0];</span><br><span class="line">    $left_arr = array();</span><br><span class="line">    $right_arr = array();</span><br><span class="line">    for ($i=1; $i&lt;count($array); $i++)&#123;</span><br><span class="line">        if ($array[$i] &lt;= $key)</span><br><span class="line">            $left_arr[] = $array[$i];</span><br><span class="line">        else</span><br><span class="line">            $right_arr[] = $array[$i];</span><br><span class="line">    &#125;</span><br><span class="line">    $left_arr = quick_sort($left_arr);</span><br><span class="line">    $right_arr = quick_sort($right_arr);</span><br><span class="line">    return array_merge($left_arr, array($key), $right_arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -220,7 +232,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/09/01/php算法/" data-id="cjxmdkatf0009b5hnuqtj3755" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/09/01/php算法/" data-id="cjxme45260005eghnaehumhen" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -279,9 +291,15 @@
         </div>
       </header>
     
+
+    <div class="article-entry">
+      
+
+    </div>
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><hr>
+        <hr>
 <h2 id="1-堆、栈特性"><a href="#1-堆、栈特性" class="headerlink" title="1.堆、栈特性"></a>1.堆、栈特性</h2><h3 id="栈：像装数据的桶或箱子"><a href="#栈：像装数据的桶或箱子" class="headerlink" title="栈：像装数据的桶或箱子"></a>栈：像装数据的桶或箱子</h3><p>我们先从大家比较熟悉的栈说起吧，它是一种具有后进先出性质的数据结构，也就是说后存放的先取，先存放的后取。</p>
 <p>这就如同我们要取出放在箱子里面底下的东西（放入的比较早的物体），我们首先要移开压在它上面的物体（放入的比较晚的物体）。</p>
 <p>百度百科：栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</p>
@@ -305,7 +323,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/09/01/数据结构/" data-id="cjxmdkatk000eb5hnwjwoufl5" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/09/01/数据结构/" data-id="cjxme45290006eghn0jj5p9ji" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -364,9 +382,15 @@
         </div>
       </header>
     
+
+    <div class="article-entry">
+      
+
+    </div>
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="php知识点"><a href="#php知识点" class="headerlink" title="php知识点"></a>php知识点</h1><hr>
+        <hr>
 <h2 id="1-普通字符串处理函数和mb-系列函数的区别："><a href="#1-普通字符串处理函数和mb-系列函数的区别：" class="headerlink" title="1.普通字符串处理函数和mb_系列函数的区别："></a>1.普通字符串处理函数和mb_系列函数的区别：</h2><p>不同编码的个别语言（比如中文）所占字节数不同，<br>一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，<br>普通字符串处理函数是按每个字符1字节来处理的，<br>而mb_系列的函数在使用时可以多指定一个编码参数，<br>方便处理不同编码的中文。<br>最简单的例子，strlen() 会返回一个字符串所占字节数，<br>而mb_strlen()会返回一个字符串的字符数。<br>再比如，substr($str2, 2, 2)在$str为中文时可能会正好截取到一个汉字的一部分，<br>这时就会发生乱码，而mb_substr($str, 2, 2, ‘utf-8’)指定编码后就不会发生乱码问题了，<br>中文时即是取几个汉字。</p>
 <hr>
 <h2 id="2-amp-引用，结合案例分析"><a href="#2-amp-引用，结合案例分析" class="headerlink" title="2.&amp; 引用，结合案例分析"></a>2.&amp; 引用，结合案例分析</h2><p>PHP 的引用允许用两个变量来指向同一个内容。</p>
@@ -642,7 +666,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/07/20/php知识点/" data-id="cjxmdkav7000wb5hnya8dto4j" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/07/20/php知识点/" data-id="cjxme4571000ueghn0lod48xu" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -701,9 +725,15 @@
         </div>
       </header>
     
+
+    <div class="article-entry">
+      
+
+    </div>
+
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="php常用函数"><a href="#php常用函数" class="headerlink" title="php常用函数"></a>php常用函数</h1><hr>
+        <hr>
 <h2 id="1-数组函数"><a href="#1-数组函数" class="headerlink" title="1.数组函数"></a>1.数组函数</h2><ul>
 <li><a href="http://php.net/manual/zh/function.array-chunk.php" target="_blank" rel="noopener">array_chunk</a> // 将一个数组分割成多个</li>
 <li><a href="http://php.net/manual/zh/function.array-column.php" target="_blank" rel="noopener">array_column</a> // 返回数组中指定的一列</li>
@@ -783,7 +813,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/07/06/php常用函数/" data-id="cjxmdkatd0007b5hn9phm7g2g" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/07/06/php常用函数/" data-id="cjxme451m0001eghnni7mze1h" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -842,6 +872,12 @@
         </div>
       </header>
     
+
+    <div class="article-entry">
+      
+
+    </div>
+
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">数组 = 数组 = 集合</span><br><span class="line">数列 = 规则数组</span><br><span class="line">函数F(x)的F只是名字</span><br><span class="line">值域 = 函数值范围</span><br><span class="line">定义域 = x取值范围</span><br><span class="line">键名 key</span><br><span class="line">值 value</span><br><span class="line">索引</span><br><span class="line">数组中的单元数目</span><br><span class="line">出栈</span><br><span class="line">入栈</span><br><span class="line">对象中的属性个数</span><br><span class="line">迭代 = 循环</span><br></pre></td></tr></table></figure>
@@ -850,7 +886,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/07/05/名词备忘/" data-id="cjxmdkath000ab5hn97jop2y8" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/07/05/名词备忘/" data-id="cjxme453n000leghnnorcfsnd" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通用/">通用</a></li></ul>
@@ -909,6 +945,12 @@
         </div>
       </header>
     
+
+    <div class="article-entry">
+      
+
+    </div>
+
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -925,7 +967,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/07/04/hexo使用步骤/" data-id="cjxmdkasz0001b5hntiujeoju" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/07/04/hexo使用步骤/" data-id="cjxme45240004eghnpt45d37g" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -1014,10 +1056,6 @@
 </div>
 
   
-
-  <div class="widget-wrap">
-    
-</div>
 </aside>
         
       </div>
