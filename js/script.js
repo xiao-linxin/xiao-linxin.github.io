@@ -223,4 +223,6 @@
   var path = "../search.xml";
   searchFunc(path, 'local-search-input', 'local-search-result');
 
+  console.log(page);
+
 })(jQuery);
