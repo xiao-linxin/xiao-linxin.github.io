@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="xiao-linxin">
 <meta property="og:description" content="1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen()会返回一个字符">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-03T13:04:56.822Z">
+<meta property="og:updated_time" content="2019-07-13T09:53:02.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php知识点">
 <meta name="twitter:description" content="1.普通字符串处理函数和mb_系列函数的区别：不同编码的个别语言（比如中文）所占字节数不同，一个汉字在GB2312编码下占2个字节，在UTF-8（是变长编码）编码下占2-3个字节，普通字符串处理函数是按每个字符1字节来处理的，而mb_系列的函数在使用时可以多指定一个编码参数，方便处理不同编码的中文。最简单的例子，strlen() 会返回一个字符串所占字节数，而mb_strlen()会返回一个字符">
@@ -43,7 +43,7 @@
     <h2 class="author">xiao-linxin</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>10</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>11</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>5</strong><br>标签</div></a>
     </div>
@@ -198,11 +198,10 @@
 <p>而层次化的编程（面向过程）就是造出一个具体的工具，<br>他只能干这样一件事，条件——结果。</p>
 <hr>
 <h2 id="9-抽象类、接口-分别使用场景"><a href="#9-抽象类、接口-分别使用场景" class="headerlink" title="9.抽象类、接口 分别使用场景"></a>9.抽象类、接口 分别使用场景</h2><p>接口 通常是为了抽象一种行为，<br>接口是一种规范，<br>在设计上的意义是为了功能模块间的解耦，<br>方便后面的功能扩展、维护，接口不能有具体的方法。</p>
-<p>抽象类 可以有具体的方法，<br>也可以有抽象方法，<br>一旦一个类有抽象方法，<br>这个类就必须声明为抽象类，<br>很多时候是为子类提供一些共用方法。</p>
-<p>所以，抽象类是为了简化接口的实现，<br>他不仅提供了公共方法的实现，<br>让你可以快速开发，<br>又允许你的类完全可以自己实现所有的方法，<br>不会出现紧耦合的问题。</p>
-<p>应用场合很简单了</p>
-<p>1 优先定义接口</p>
-<p>2 如果有多个接口实现有公用的部分，则使用抽象类，然后集成它。</p>
+<p>抽象类 可以有具体的方法，也可以有抽象方法，一旦一个类有抽象方法，这个类就必须声明为抽象类，很多时候是为子类提供一些共用方法。  </p>
+<p>所以，抽象类是为了简化接口的实现，他不仅提供了公共方法的实现，让你可以快速开发，又允许你的类完全可以自己实现所有的方法，不会出现紧耦合的问题。  </p>
+<p>抽象类中必须有抽象方法，否则不叫抽象类。（抽象类可以是个空类）  </p>
+<p>应用场合：<br>1 优先定义接口。<br>2 如果有多个接口实现有公用的部分，则使用抽象类，然后集成它。  </p>
 <p>举个简单的例子：<br>有一个动物接口，<br>内有动物叫声和动物说你好两个方法，<br>在实现该接口时各个动物的叫声肯定是不同的，<br>但是他们都在说你好是相同的，<br>此时就可以用抽象类，<br>把相同的说你好的方法抽象出去，<br>就不用在每个动物类中写了。</p>
 <hr>
 <h2 id="10-Trait-是什么东西"><a href="#10-Trait-是什么东西" class="headerlink" title="10.Trait 是什么东西"></a>10.Trait 是什么东西</h2><p>Trait 是为类似 PHP 的单继承语言而准备的一种代码复用机制。</p>
@@ -326,7 +325,7 @@
 <p>2）最底下的一层，是核心的”数据层”（Model），也就是程序需要操作的数据或信息。</p>
 <p>3）中间的一层，就是”控制层”（Controller），它负责根据用户从”视图层”输入的指令，选取”数据层”中的数据，然后对其进行相应的操作，产生最终结果。</p>
 <hr>
-<h2 id="32-依赖注入实现原理"><a href="#32-依赖注入实现原理" class="headerlink" title="32.依赖注入实现原理"></a>32.依赖注入实现原理</h2><p>一个用构造方法实现依赖注入的简单例子（原文链接）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//依赖注入(Dependency injection)也叫控制反转（Inversion of Control）是一种设计模式，</span><br><span class="line">//这种模式用来减少程序间的耦合。</span><br><span class="line">//假设我们有个类，需要用到数据库连接，我们可能这样写</span><br><span class="line"></span><br><span class="line">class UseDataBase &#123;</span><br><span class="line">    protected $adapter;</span><br><span class="line">    public function __construct() &#123;</span><br><span class="line">        $this-&gt;adapter=new MySqlAdapter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function getList() &#123;</span><br><span class="line">        $this-&gt;adapter-&gt;query(&quot;sql语句&quot;);//使用MySqlAdapter类中的query方法；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MySqlAdapter&#123;&#125;;</span><br><span class="line"></span><br><span class="line">//我们可以通过依赖注入来重构上面这个例子</span><br><span class="line"></span><br><span class="line">class UseDataBase &#123;</span><br><span class="line">    protected $adapter;</span><br><span class="line">    public function __construct(MySqlAdapter $adapter) &#123;</span><br><span class="line">        $this-&gt;adapter=$adapter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function getList() &#123;</span><br><span class="line">        $this-&gt;adapter-&gt;query(&quot;sql语句&quot;);//使用MySqlAdapter类中的query方法；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MySqlAdapter&#123;&#125;;</span><br><span class="line">//但是，当我们有很多种数据库时，上面的这种方式就达不到要求或者要写很多个usedatabase类,所以我们再重构上面的这个例子</span><br><span class="line"></span><br><span class="line">class UseDataBase &#123;</span><br><span class="line">    protected $adapter;</span><br><span class="line">    poublic function __construct(AdapterInterface $adapter) &#123;</span><br><span class="line">        $this-&gt;adapter=$adapter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function getList() &#123;</span><br><span class="line">        $this-&gt;adapter-&gt;query(&quot;sql语句&quot;);//使用AdapterInterface类中的query方法；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface AdapterInterface&#123;&#125;;</span><br><span class="line"></span><br><span class="line">class MySqlAdapter implements AdapterInterface&#123;&#125;;</span><br><span class="line"></span><br><span class="line">class MSsqlAdapter implements AdapterInterface&#123;&#125;;</span><br><span class="line"></span><br><span class="line">//这样的话，当要使用不同的数据库时，我们只需要添加数据库类实现适配器接口就够了，</span><br><span class="line"></span><br><span class="line">usedatabase类则不需要动。</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="32-依赖注入实现原理"><a href="#32-依赖注入实现原理" class="headerlink" title="32.依赖注入实现原理"></a>32.依赖注入实现原理</h2><p>一个用构造方法实现依赖注入的简单例子（原文链接）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">//依赖注入(Dependency injection)也叫控制反转（Inversion of Control）是一种设计模式，</span><br><span class="line">//这种模式用来减少程序间的耦合。</span><br><span class="line">//假设我们有个类，需要用到数据库连接，我们可能这样写</span><br><span class="line"></span><br><span class="line">class UseDataBase &#123;</span><br><span class="line">    protected $adapter;</span><br><span class="line">    public function __construct() &#123;</span><br><span class="line">        $this-&gt;adapter=new MySqlAdapter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function getList() &#123;</span><br><span class="line">        $this-&gt;adapter-&gt;query(&quot;sql语句&quot;); //使用MySqlAdapter类中的query方法；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MySqlAdapter&#123;&#125;;</span><br><span class="line"></span><br><span class="line">//我们可以通过依赖注入来重构上面这个例子</span><br><span class="line"></span><br><span class="line">class UseDataBase &#123;</span><br><span class="line">    protected $adapter;</span><br><span class="line">    public function __construct(MySqlAdapter $adapter) &#123;</span><br><span class="line">        $this-&gt;adapter=$adapter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function getList() &#123;</span><br><span class="line">        $this-&gt;adapter-&gt;query(&quot;sql语句&quot;);//使用MySqlAdapter类中的query方法；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MySqlAdapter&#123;&#125;;</span><br><span class="line">//但是，当我们有很多种数据库时，上面的这种方式就达不到要求或者要写很多个usedatabase类,所以我们再重构上面的这个例子</span><br><span class="line"></span><br><span class="line">class UseDataBase &#123;</span><br><span class="line">    protected $adapter;</span><br><span class="line">    poublic function __construct(AdapterInterface $adapter) &#123;</span><br><span class="line">        $this-&gt;adapter=$adapter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function getList() &#123;</span><br><span class="line">        $this-&gt;adapter-&gt;query(&quot;sql语句&quot;);//使用AdapterInterface类中的query方法；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface AdapterInterface&#123;&#125;;</span><br><span class="line"></span><br><span class="line">class MySqlAdapter implements AdapterInterface&#123;&#125;;</span><br><span class="line"></span><br><span class="line">class MSsqlAdapter implements AdapterInterface&#123;&#125;;</span><br><span class="line"></span><br><span class="line">//这样的话，当要使用不同的数据库时，我们只需要添加数据库类实现适配器接口就够了，</span><br><span class="line"></span><br><span class="line">usedatabase类则不需要动。</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
 <p>因为大多数应用程序都是由两个或者更多的类通过彼此合作来实现业务逻辑，这使得每个对象都需要获取与其合作的对象（也就是它所依赖的对象）的引用。如果这个获取过程要靠自身实现，那么将导致代码高度耦合并且难以维护和调试。</p>
 <hr>
 <h2 id="33-如何异步执行命令"><a href="#33-如何异步执行命令" class="headerlink" title="33.如何异步执行命令"></a>33.如何异步执行命令</h2><p>不明白作者提出的这个问题是想问shell异步执行还是php异步执行脚本。</p>
@@ -403,7 +402,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/07/20/php知识点/" data-id="cjxuyoix40016knhnwklrt4sm" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/07/20/php知识点/" data-id="cjy3i0thj0019rthnfi7k8ats" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -414,11 +413,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/01/数据结构/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/09/01/php实践/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          数据结构
+          php实践
         
       </div>
     </a>
@@ -483,7 +482,7 @@
     <h2 class="author">xiao-linxin</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>10</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>11</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>5</strong><br>标签</div></a>
     </div>
