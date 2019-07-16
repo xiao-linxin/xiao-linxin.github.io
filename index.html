@@ -137,7 +137,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2019/07/01/UI设计/" data-id="cjy3i0teg0000rthnrpbi8on6" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2019/07/01/UI设计/" data-id="cjy61igyy00001fhno97f83h5" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li></ul>
@@ -220,7 +220,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2017/11/05/php依赖注入/" data-id="cjy3i0tfh0012rthngtq28c3f" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2017/11/05/php依赖注入/" data-id="cjy61ih0800171fhnzypdz3xs" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -316,186 +316,10 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2017/01/20/正则表达式/" data-id="cjy3i0teu000brthnc64a6g85" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2017/01/20/正则表达式/" data-id="cjy61igzk000i1fhnqhdmx535" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-php算法" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/01/php算法/" class="article-date">
-  <time class="post-time" datetime="2016-08-31T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br>
-    <span class="post-day">01</span>
-  </time>
-</a>
-  </div>
-
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/01/php算法/">php算法</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/php/">php</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2016/09/01/php算法/" class="leancloud_visitors" data-flag-title="php算法">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-
-    <div class="article-entry">
-      
-
-    </div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function maopao($arr) &#123;</span><br><span class="line">    $len = count($arr);</span><br><span class="line">    $n = count($arr) - 1;</span><br><span class="line">    for ($i = 0; $i &lt; $len; $i++) &#123;</span><br><span class="line">        for ($j = 0; $j &lt; $n; $j++) &#123;</span><br><span class="line">            if ($arr[$j] &gt; $arr[$j + 1]) &#123;</span><br><span class="line">                $tmp = $arr[$j];</span><br><span class="line">                $arr[$j] = $arr[$j + 1];</span><br><span class="line">                $arr[$j + 1] = $tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="2-快速排序"><a href="#2-快速排序" class="headerlink" title="2.快速排序"></a>2.快速排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($array) &#123;</span><br><span class="line">    if (count($array) &lt;= 1) return $array;</span><br><span class="line">    $key = $array[0];</span><br><span class="line">    $left_arr = array();</span><br><span class="line">    $right_arr = array();</span><br><span class="line">    for ($i=1; $i&lt;count($array); $i++)&#123;</span><br><span class="line">        if ($array[$i] &lt;= $key)</span><br><span class="line">            $left_arr[] = $array[$i];</span><br><span class="line">        else</span><br><span class="line">            $right_arr[] = $array[$i];</span><br><span class="line">    &#125;</span><br><span class="line">    $left_arr = quick_sort($left_arr);</span><br><span class="line">    $right_arr = quick_sort($right_arr);</span><br><span class="line">    return array_merge($left_arr, array($key), $right_arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="3-二分查找"><a href="#3-二分查找" class="headerlink" title="3.二分查找"></a>3.二分查找</h2><p><a href="https://blog.csdn.net/nuli888/article/details/52144044" target="_blank" rel="noopener">php二分查找、顺序查找算法</a></p>
-<hr>
-<h2 id="4-查找算法-KMP"><a href="#4-查找算法-KMP" class="headerlink" title="4.查找算法 KMP"></a>4.查找算法 KMP</h2><p><a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">从头到尾彻底理解KMP</a></p>
-<hr>
-<h2 id="5-深度、广度优先搜索"><a href="#5-深度、广度优先搜索" class="headerlink" title="5.深度、广度优先搜索"></a>5.深度、广度优先搜索</h2><p><a href="https://www.jianshu.com/p/b086986969e6" target="_blank" rel="noopener">DFS（深度优先搜索）和BFS(广度优先搜索)</a><br><a href="https://juejin.im/post/5a32688b5188254dd9366d6a" target="_blank" rel="noopener">图的广度优先和深度优先遍历（BFS和DFS）</a><br><a href="http://www.blogjava.net/fancydeepin/archive/2013/02/03/395073.html" target="_blank" rel="noopener">二叉树的深度优先遍历与广度优先遍历 [ C++ 实现 ]</a><br><a href="https://www.cnblogs.com/zemliu/archive/2012/09/24/2700878.html" target="_blank" rel="noopener">PHP 二叉树的深度优先与广度优先遍历</a></p>
-<hr>
-<h2 id="6-LRU-缓存淘汰算法"><a href="#6-LRU-缓存淘汰算法" class="headerlink" title="6.LRU 缓存淘汰算法"></a>6.LRU 缓存淘汰算法</h2><p><a href="https://blog.csdn.net/youyangyouni/article/details/80988852#commentBox" target="_blank" rel="noopener">LRU算法(php实现)</a></p>
-<hr>
-
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/09/01/php算法/" data-id="cjy3i0teq0005rthnoiyp94f9" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-数据结构" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/01/数据结构/" class="article-date">
-  <time class="post-time" datetime="2016-08-31T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br>
-    <span class="post-day">01</span>
-  </time>
-</a>
-  </div>
-
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/01/数据结构/">数据结构</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/php/">php</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2016/09/01/数据结构/" class="leancloud_visitors" data-flag-title="数据结构">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-
-    <div class="article-entry">
-      
-
-    </div>
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="1-堆、栈特性"><a href="#1-堆、栈特性" class="headerlink" title="1.堆、栈特性"></a>1.堆、栈特性</h2><h3 id="栈：像装数据的桶或箱子"><a href="#栈：像装数据的桶或箱子" class="headerlink" title="栈：像装数据的桶或箱子"></a>栈：像装数据的桶或箱子</h3><p>我们先从大家比较熟悉的栈说起吧，它是一种具有后进先出性质的数据结构，也就是说后存放的先取，先存放的后取。</p>
-<p>这就如同我们要取出放在箱子里面底下的东西（放入的比较早的物体），我们首先要移开压在它上面的物体（放入的比较晚的物体）。</p>
-<p>百度百科：栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</p>
-<p>栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放。</p>
-<h3 id="堆：像一棵倒过来的树"><a href="#堆：像一棵倒过来的树" class="headerlink" title="堆：像一棵倒过来的树"></a>堆：像一棵倒过来的树</h3><p>而堆就不同了，堆是一种经过排序的树形数据结构，每个结点都有一个值。</p>
-<p>通常我们所说的堆的数据结构，是指二叉堆。</p>
-<p>堆的特点是根结点的值最小（或最大），且根结点的两个子树也是一个堆。</p>
-<p>由于堆的这个特性，常用来实现优先队列，堆的存取是随意，这就如同我们在图书馆的书架上取书，虽然书的摆放是有顺序的，但是我们想取任意一本时不必像栈一样，先取出前面所有的书，书架这种机制不同于箱子，我们可以直接取出我们想要的书。</p>
-<p>百度百科：堆（操作系统）： 一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收，分配方式倒是类似于链表。</p>
-<p>堆则是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些。</p>
-<h3 id="堆和栈的区别可以引用一位前辈的比喻来看出："><a href="#堆和栈的区别可以引用一位前辈的比喻来看出：" class="headerlink" title="堆和栈的区别可以引用一位前辈的比喻来看出："></a>堆和栈的区别可以引用一位前辈的比喻来看出：</h3><p>使用栈就象我们去饭馆里吃饭，只管点菜（发出申请）、付钱、和吃（使用），吃饱了就走，不必理会切菜、洗菜等准备工作和洗碗、刷锅等扫尾工作，他的好处是快捷，但是自由度小。 </p>
-<p>使用堆就象是自己动手做喜欢吃的菜肴，比较麻烦，但是比较符合自己的口味，而且自由度大。比喻很形象，说的很通俗易懂，不知道你是否有点收获。</p>
-<hr>
-<h2 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h2><p>队列（queue）是一种采用先进先出(FIFO)策略的抽象数据结构，它的想法来自于生活中排队的策略。顾客在付款结账的时候，按照到来的先后顺序排队结账，先来的顾客先结账，后来的顾客后结账。队列的实现一般有数组实现和链表实现两种方式。<br>队列又分单链队列、循环队列、阵列队列，具体可参见<a href="https://zh.wikipedia.org/wiki/%E9%98%9F%E5%88%97" target="_blank" rel="noopener">维基</a></p>
-<hr>
-<h2 id="3-哈希表"><a href="#3-哈希表" class="headerlink" title="3.哈希表"></a>3.哈希表</h2><p>Hash表也称散列表，也有直接译作哈希表，Hash表是一种特殊的数据结构，它同数组、链表以及二叉排序树等相比较有很明显的区别，它能够快速定位到想要查找的记录，而不是与表中存在的记录的关键字进行比较来进行查找。这个源于Hash表设计的特殊性，通过把关键码值（Key value）映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做Hash函数，存放记录的数组叫做Hash表。</p>
-<h2 id="4-链表"><a href="#4-链表" class="headerlink" title="4.链表"></a>4.链表</h2><p>链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(Pointer)。由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，比另一种线性表顺序表快得多，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间，而顺序表相应的时间复杂度分别是O(logn)和O(1)。</p>
-<p>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。</p>
-
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/09/01/数据结构/" data-id="cjy3i0tet000arthnw38ldzlo" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
 
     </footer>
   </div>
@@ -587,7 +411,183 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/09/01/php实践/" data-id="cjy3i0tep0004rthni7yp8aqv" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/09/01/php实践/" data-id="cjy61igzb00081fhn2z359moe" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-php算法" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/01/php算法/" class="article-date">
+  <time class="post-time" datetime="2016-08-31T16:00:00.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br>
+    <span class="post-day">01</span>
+  </time>
+</a>
+  </div>
+
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/01/php算法/">php算法</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2016/09/01/php算法/" class="leancloud_visitors" data-flag-title="php算法">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+
+    <div class="article-entry">
+      
+
+    </div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function maopao($arr) &#123;</span><br><span class="line">    $len = count($arr);</span><br><span class="line">    $n = count($arr) - 1;</span><br><span class="line">    for ($i = 0; $i &lt; $len; $i++) &#123;</span><br><span class="line">        for ($j = 0; $j &lt; $n; $j++) &#123;</span><br><span class="line">            if ($arr[$j] &gt; $arr[$j + 1]) &#123;</span><br><span class="line">                $tmp = $arr[$j];</span><br><span class="line">                $arr[$j] = $arr[$j + 1];</span><br><span class="line">                $arr[$j + 1] = $tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-快速排序"><a href="#2-快速排序" class="headerlink" title="2.快速排序"></a>2.快速排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort($array) &#123;</span><br><span class="line">    if (count($array) &lt;= 1) return $array;</span><br><span class="line">    $key = $array[0];</span><br><span class="line">    $left_arr = array();</span><br><span class="line">    $right_arr = array();</span><br><span class="line">    for ($i=1; $i&lt;count($array); $i++)&#123;</span><br><span class="line">        if ($array[$i] &lt;= $key)</span><br><span class="line">            $left_arr[] = $array[$i];</span><br><span class="line">        else</span><br><span class="line">            $right_arr[] = $array[$i];</span><br><span class="line">    &#125;</span><br><span class="line">    $left_arr = quick_sort($left_arr);</span><br><span class="line">    $right_arr = quick_sort($right_arr);</span><br><span class="line">    return array_merge($left_arr, array($key), $right_arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="3-二分查找"><a href="#3-二分查找" class="headerlink" title="3.二分查找"></a>3.二分查找</h2><p><a href="https://blog.csdn.net/nuli888/article/details/52144044" target="_blank" rel="noopener">php二分查找、顺序查找算法</a></p>
+<hr>
+<h2 id="4-查找算法-KMP"><a href="#4-查找算法-KMP" class="headerlink" title="4.查找算法 KMP"></a>4.查找算法 KMP</h2><p><a href="https://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="noopener">从头到尾彻底理解KMP</a></p>
+<hr>
+<h2 id="5-深度、广度优先搜索"><a href="#5-深度、广度优先搜索" class="headerlink" title="5.深度、广度优先搜索"></a>5.深度、广度优先搜索</h2><p><a href="https://www.jianshu.com/p/b086986969e6" target="_blank" rel="noopener">DFS（深度优先搜索）和BFS(广度优先搜索)</a><br><a href="https://juejin.im/post/5a32688b5188254dd9366d6a" target="_blank" rel="noopener">图的广度优先和深度优先遍历（BFS和DFS）</a><br><a href="http://www.blogjava.net/fancydeepin/archive/2013/02/03/395073.html" target="_blank" rel="noopener">二叉树的深度优先遍历与广度优先遍历 [ C++ 实现 ]</a><br><a href="https://www.cnblogs.com/zemliu/archive/2012/09/24/2700878.html" target="_blank" rel="noopener">PHP 二叉树的深度优先与广度优先遍历</a></p>
+<hr>
+<h2 id="6-LRU-缓存淘汰算法"><a href="#6-LRU-缓存淘汰算法" class="headerlink" title="6.LRU 缓存淘汰算法"></a>6.LRU 缓存淘汰算法</h2><p><a href="https://blog.csdn.net/youyangyouni/article/details/80988852#commentBox" target="_blank" rel="noopener">LRU算法(php实现)</a></p>
+<hr>
+
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="https://xiao-linxin.github.io/2016/09/01/php算法/" data-id="cjy61igzf000d1fhnhnord35s" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-数据结构" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/01/数据结构/" class="article-date">
+  <time class="post-time" datetime="2016-08-31T16:00:00.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br>
+    <span class="post-day">01</span>
+  </time>
+</a>
+  </div>
+
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/01/数据结构/">数据结构</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/php/">php</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2016/09/01/数据结构/" class="leancloud_visitors" data-flag-title="数据结构">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+
+    <div class="article-entry">
+      
+
+    </div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="1-堆、栈特性"><a href="#1-堆、栈特性" class="headerlink" title="1.堆、栈特性"></a>1.堆、栈特性</h2><h3 id="栈：像装数据的桶或箱子"><a href="#栈：像装数据的桶或箱子" class="headerlink" title="栈：像装数据的桶或箱子"></a>栈：像装数据的桶或箱子</h3><p>我们先从大家比较熟悉的栈说起吧，它是一种具有后进先出性质的数据结构，也就是说后存放的先取，先存放的后取。</p>
+<p>这就如同我们要取出放在箱子里面底下的东西（放入的比较早的物体），我们首先要移开压在它上面的物体（放入的比较晚的物体）。</p>
+<p>百度百科：栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</p>
+<p>栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放。</p>
+<h3 id="堆：像一棵倒过来的树"><a href="#堆：像一棵倒过来的树" class="headerlink" title="堆：像一棵倒过来的树"></a>堆：像一棵倒过来的树</h3><p>而堆就不同了，堆是一种经过排序的树形数据结构，每个结点都有一个值。</p>
+<p>通常我们所说的堆的数据结构，是指二叉堆。</p>
+<p>堆的特点是根结点的值最小（或最大），且根结点的两个子树也是一个堆。</p>
+<p>由于堆的这个特性，常用来实现优先队列，堆的存取是随意，这就如同我们在图书馆的书架上取书，虽然书的摆放是有顺序的，但是我们想取任意一本时不必像栈一样，先取出前面所有的书，书架这种机制不同于箱子，我们可以直接取出我们想要的书。</p>
+<p>百度百科：堆（操作系统）： 一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收，分配方式倒是类似于链表。</p>
+<p>堆则是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些。</p>
+<h3 id="堆和栈的区别可以引用一位前辈的比喻来看出："><a href="#堆和栈的区别可以引用一位前辈的比喻来看出：" class="headerlink" title="堆和栈的区别可以引用一位前辈的比喻来看出："></a>堆和栈的区别可以引用一位前辈的比喻来看出：</h3><p>使用栈就象我们去饭馆里吃饭，只管点菜（发出申请）、付钱、和吃（使用），吃饱了就走，不必理会切菜、洗菜等准备工作和洗碗、刷锅等扫尾工作，他的好处是快捷，但是自由度小。 </p>
+<p>使用堆就象是自己动手做喜欢吃的菜肴，比较麻烦，但是比较符合自己的口味，而且自由度大。比喻很形象，说的很通俗易懂，不知道你是否有点收获。</p>
+<hr>
+<h2 id="2-队列"><a href="#2-队列" class="headerlink" title="2.队列"></a>2.队列</h2><p>队列（queue）是一种采用先进先出(FIFO)策略的抽象数据结构，它的想法来自于生活中排队的策略。顾客在付款结账的时候，按照到来的先后顺序排队结账，先来的顾客先结账，后来的顾客后结账。队列的实现一般有数组实现和链表实现两种方式。<br>队列又分单链队列、循环队列、阵列队列，具体可参见<a href="https://zh.wikipedia.org/wiki/%E9%98%9F%E5%88%97" target="_blank" rel="noopener">维基</a></p>
+<hr>
+<h2 id="3-哈希表"><a href="#3-哈希表" class="headerlink" title="3.哈希表"></a>3.哈希表</h2><p>Hash表也称散列表，也有直接译作哈希表，Hash表是一种特殊的数据结构，它同数组、链表以及二叉排序树等相比较有很明显的区别，它能够快速定位到想要查找的记录，而不是与表中存在的记录的关键字进行比较来进行查找。这个源于Hash表设计的特殊性，通过把关键码值（Key value）映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做Hash函数，存放记录的数组叫做Hash表。</p>
+<h2 id="4-链表"><a href="#4-链表" class="headerlink" title="4.链表"></a>4.链表</h2><p>链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(Pointer)。由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，比另一种线性表顺序表快得多，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间，而顺序表相应的时间复杂度分别是O(logn)和O(1)。</p>
+<p>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。</p>
+
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="https://xiao-linxin.github.io/2016/09/01/数据结构/" data-id="cjy61igzh000e1fhnf0px93r9" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -929,7 +929,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/07/20/php知识点/" data-id="cjy3i0thj0019rthnfi7k8ats" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/07/20/php知识点/" data-id="cjy61ih0t001b1fhnefefoyxz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -1263,15 +1263,22 @@
 <p>class A {<br>    public function __construct() {<br>        echo “Class A…<br>“;<br>    }<br>}</p>
 <p>class B extends A {<br>    public function __construct() {<br>        echo “Class B…<br>“;<br>    }<br>}</p>
 <p>new B(); // Class B…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">分析A 子类继承父类，子类的构造函数会覆盖父类的构造函数。  </span><br><span class="line">B的构造都没有调用parent::__construct()。  </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 下列代码输入结果</span><br></pre></td></tr></table></figure></p>
-<p>&lt;?php<br>class A {<br>    public $num = 100;<br>}<br>$a = new A();<br>$b = $a;<br>$a-&gt;num = 200;<br>echo $b-&gt;num;<br><code>`</code></p>
+<p>&lt;?php<br>class A {<br>    public $num = 100;<br>}<br>$a = new A();<br>$b = $a;<br>$a-&gt;num = 200;<br>echo $b-&gt;num;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 当PDO对象创建成功以后，与数据库的连接已经建立，就可以使用PDO对象了，下面哪个不是PDO对象中的成员方法?</span><br><span class="line">A.errorInfo()  </span><br><span class="line">√B.bindParam()  </span><br><span class="line">C.exec()  </span><br><span class="line">D.prepare()</span><br><span class="line"></span><br><span class="line">PDO对象中的成员方法：  </span><br><span class="line">getAttribute() 获取一个数据库链接对象的属性  </span><br><span class="line">setAttribute() 为一个数据库连接对象设定属性  </span><br><span class="line">errorCode() 获取错误码  </span><br><span class="line">errorInfo() 获取错误信息  </span><br><span class="line">exec() 处理一条SQL语句，并返回所影响的条数  </span><br><span class="line">query() 处理一条SQL语句，并返回一个PDOStatement对象</span><br><span class="line">quote() 为某个sql中的字符串添加引号</span><br><span class="line">lastInsertId() 获取插入到表中的最后一条数据的主键  </span><br><span class="line">prepare() 负责准备执行的sql语句  </span><br><span class="line">getAvailableDriver() 获取有效的PDO驱动器名称  </span><br><span class="line">beginTransaction() 开始一个事务  </span><br><span class="line">commit() 提交事务  </span><br><span class="line">rollback() 回滚事务  </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 如果在PHP中使用Oracle数据库作为数据库服务器，应该在PDO中加载下面哪个驱动程序？</span><br><span class="line">A.PDO_DBLIB  </span><br><span class="line">B.PDO_MYSQL  </span><br><span class="line">√C.PDO_OCI  </span><br><span class="line">D.PDO_ODBC  </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## print()和echo()有什么区别？</span><br><span class="line">A.print()能作为表达式的一部分，echo()不能  </span><br><span class="line">B.echo()能作为表达式的一部分，print()不能   </span><br><span class="line">C.echo()能在CLI（命令行）版本的php中使用，print()不能  </span><br><span class="line">D.print()能在CLI（命令行）版本的php中使用，echo()不能  </span><br><span class="line"></span><br><span class="line">分析：echo是语言结构，而并不是真正的函数，没有返回值，因此不能作为表达式的一部分使用。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 请看代码，数据库关闭指令将关闭哪个连接标识？</span><br></pre></td></tr></table></figure></p>
+<p>&lt;?php<br>$link1 = mysql_connect(“localhost”, “root”, “”);<br>$link2 = mysql_connect(“localhost”, “root”, “”);<br>mysql_close();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">分析：报错，因为mysql_close()中必须有参数，而且php高版本的已经不用mysql函数了，因为安全性不搞，现在用mysqli或者PDO。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 下面哪一个不是关于数组指针的函数？</span><br><span class="line">A.first()  </span><br><span class="line">B.end()  </span><br><span class="line">C.prev()  </span><br><span class="line">D.next()  </span><br><span class="line"></span><br><span class="line">分析：对于数组指针的控制php提供了以下几个内建函数。</span><br></pre></td></tr></table></figure></p>
+<p>current() //取得目前指针位置的内容资料<br>key() //读取目前指针所指向资料的索引值（键值）<br>next() //将数组中的内部指针移动到下一个单元<br>prev() //将数组的内部指针倒回一位<br>end() //将数组的内部指针指向最后一个元素<br>reset() //将目前指针无条件移至第一个索引位置<br><code>`</code></p>
 <hr>
-<h2 id="当PDO对象创建成功以后，与数据库的连接已经建立，就可以使用PDO对象了，下面哪个不是PDO对象中的成员方法"><a href="#当PDO对象创建成功以后，与数据库的连接已经建立，就可以使用PDO对象了，下面哪个不是PDO对象中的成员方法" class="headerlink" title="当PDO对象创建成功以后，与数据库的连接已经建立，就可以使用PDO对象了，下面哪个不是PDO对象中的成员方法?"></a>当PDO对象创建成功以后，与数据库的连接已经建立，就可以使用PDO对象了，下面哪个不是PDO对象中的成员方法?</h2><p>A.errorInfo()<br>B.bindParam()<br>C.exec()<br>D.prepare()</p>
+<h2 id="mysql-fetch-object说法中正确的是"><a href="#mysql-fetch-object说法中正确的是" class="headerlink" title="mysql_fetch_object说法中正确的是()"></a>mysql_fetch_object说法中正确的是()</h2><p>√A.mysql_fetch_object返回值是个对象，在速度上和mysql_fetch_array及mysql_fetch_row差不多<br>B.mysql_fetch_object返回值是个对象，所以在速度上比mysql_fetch_array要慢<br>C.mysql_fetch_object返回值是个数组，所以在速度上和mysql_fetch_array及mysql_fetch_row差不多<br>D.mysql_fetch_object和mysql_fetch_array一样，没什么区别  </p>
+<hr>
+<h2 id="HTTP请求行中包含哪些内容？（）"><a href="#HTTP请求行中包含哪些内容？（）" class="headerlink" title="HTTP请求行中包含哪些内容？（）"></a>HTTP请求行中包含哪些内容？（）</h2><p>√A.请求方法<br>√B.资源名称<br>√C.版本号<br>D.状态代码</p>
+<hr>
+<h2 id="PHP-Cookies说法正确的是（）"><a href="#PHP-Cookies说法正确的是（）" class="headerlink" title="PHP Cookies说法正确的是（）"></a>PHP Cookies说法正确的是（）</h2><p>√A.setcookie() 函数用于设置 cookie，且必须位于 <html> 标签之前<br>√B.cookie 是服务器留在用户计算机中的小文件<br>C.cookie 常用于标识服务器<br>D.会话cookie的生命周期是在关闭浏览器前就消失，并且会保存在硬盘上  </html></p>
+<hr>
 
       
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/07/20/php面试录/" data-id="cjy3i0thp001crthn6gxra27u" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/07/20/php面试录/" data-id="cjy61ih0v001e1fhngcw3m1ei" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -1418,7 +1425,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/07/06/php常用函数/" data-id="cjy3i0tew000frthnbaedrtsc" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/07/06/php常用函数/" data-id="cjy61igza00061fhn9at15cqf" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
@@ -1491,7 +1498,7 @@
     </div>
 
     <footer class="article-footer">
-      <a data-url="https://xiao-linxin.github.io/2016/07/05/名词备忘/" data-id="cjy3i0ter0006rthngi09l8yo" class="article-share-link">分享</a>
+      <a data-url="https://xiao-linxin.github.io/2016/07/05/名词备忘/" data-id="cjy61igzd00091fhndylxdjf3" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通用/">通用</a></li></ul>
