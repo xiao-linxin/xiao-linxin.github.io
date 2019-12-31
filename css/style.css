@@ -888,7 +888,7 @@ body {
   overflow: hidden;
 }
 #wrap {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
@@ -1916,6 +1916,9 @@ a.article-title:hover {
   padding: 10px 0;
   border-top: 1px solid #ddd;
   color: #999;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 #footer a {
   color: #258fb8;

@@ -39,6 +39,10 @@ ul {
     background-position: 50% 50%;
     background-repeat: initial;
     z-index: -2;
+    -webkit-transition: 0.2s ease-out;
+    -moz-transition: 0.2s ease-out;
+    -ms-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
 }
 
 .cb-slideshow li div {
@@ -48,6 +52,10 @@ ul {
     left: 0;
     width: 100%;
     text-align: right;
+    -webkit-transition: 0.2s ease-out;
+    -moz-transition: 0.2s ease-out;
+    -ms-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
 }
 
 /*太卡，屏蔽背景轮播*/
