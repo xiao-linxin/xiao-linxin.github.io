@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>数据库设计 | xiao-linxin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据库设计 1.数据库设计概述 数据库是什么？是根据业务系统的具体需要，结合我们所选用的DBMS（数据库管理系统），为这个业务系统构造出最优的数据库存储模型。并建立好数据库中的表结构及表与表之间的关联关系的过程。使之能有效的对应用系统中的数据进行存储，并可以高效的对已经存储的数据进行访问。 为什么要设计数据库？优良的设计可减少数据冗余、避免数据维护异常、节约存储空间、高效的访问。 2.如何设计数据">
+<meta name="keywords" content="sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库设计">
+<meta property="og:url" content="https://xiao-linxin.github.io/1970/01/01/20170110数据库设计/index.html">
+<meta property="og:site_name" content="xiao-linxin">
+<meta property="og:description" content="数据库设计 1.数据库设计概述 数据库是什么？是根据业务系统的具体需要，结合我们所选用的DBMS（数据库管理系统），为这个业务系统构造出最优的数据库存储模型。并建立好数据库中的表结构及表与表之间的关联关系的过程。使之能有效的对应用系统中的数据进行存储，并可以高效的对已经存储的数据进行访问。 为什么要设计数据库？优良的设计可减少数据冗余、避免数据维护异常、节约存储空间、高效的访问。 2.如何设计数据">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-25T05:15:34.344Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库设计">
+<meta name="twitter:description" content="数据库设计 1.数据库设计概述 数据库是什么？是根据业务系统的具体需要，结合我们所选用的DBMS（数据库管理系统），为这个业务系统构造出最优的数据库存储模型。并建立好数据库中的表结构及表与表之间的关联关系的过程。使之能有效的对应用系统中的数据进行存储，并可以高效的对已经存储的数据进行访问。 为什么要设计数据库？优良的设计可减少数据冗余、避免数据维护异常、节约存储空间、高效的访问。 2.如何设计数据">
+  
+    <link rel="alternate" href="/atom.xml" title="xiao-linxin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="http://img.fanwp.cn/IMG_4296.JPG">
+    <h2 class="author">xiao-linxin</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>8</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>8</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/search" title="search">
+            <li>搜索</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-20170110数据库设计" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/1970/01/01/20170110数据库设计/" class="article-date">
+  <time class="post-time" datetime="1970-01-01T05:36:10.110Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br>
+    <span class="post-day">01</span>
+  </time>
+</a>
+  </div>
+
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据库设计
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sql/">sql</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/1970/01/01/20170110数据库设计/" class="leancloud_visitors" data-flag-title="数据库设计">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+
+    <div class="article-entry">
+      
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库设计"><span class="toc-text">数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据库设计概述"><span class="toc-text">1.数据库设计概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-如何设计数据库"><span class="toc-text">2.如何设计数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1需求分析"><span class="toc-text">2.1需求分析</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+
+    </div>
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><hr>
+<h3 id="1-数据库设计概述"><a href="#1-数据库设计概述" class="headerlink" title="1.数据库设计概述"></a>1.数据库设计概述</h3><hr>
+<p>数据库是什么？<br>是根据业务系统的具体需要，<br>结合我们所选用的DBMS（数据库管理系统），<br>为这个业务系统构造出最优的数据库存储模型。<br>并建立好数据库中的表结构及表与表之间的关联关系的过程。<br>使之能有效的对应用系统中的数据进行存储，<br>并可以高效的对已经存储的数据进行访问。</p>
+<p>为什么要设计数据库？<br>优良的设计可减少数据冗余、避免数据维护异常、节约存储空间、高效的访问。</p>
+<h3 id="2-如何设计数据库"><a href="#2-如何设计数据库" class="headerlink" title="2.如何设计数据库"></a>2.如何设计数据库</h3><hr>
+<p>步骤：需求分析-&gt;逻辑设计-&gt;物理设计-&gt;维护优化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1.需求分析 </span><br><span class="line">数据库需求的作用点：</span><br><span class="line">1、数据是什么</span><br><span class="line">2、数据有哪些属性</span><br><span class="line">3、数据和属性各自的特点有哪些</span><br><span class="line"></span><br><span class="line">2.逻辑设计：</span><br><span class="line">使用ER图对数据库进行逻辑建模</span><br><span class="line"></span><br><span class="line">3.物理设计：</span><br><span class="line">根据数据库自身的特点把逻辑设计转为物理设计</span><br><span class="line"></span><br><span class="line">4.维护优化：</span><br><span class="line">1、新的需求进行建表</span><br><span class="line">2、索引优化</span><br><span class="line">3、大表拆分</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-1需求分析"><a href="#2-1需求分析" class="headerlink" title="2.1需求分析"></a>2.1需求分析</h4><hr>
+<p>数据库需求的作用点：<br>1、数据是什么<br>2、数据有哪些属性<br>3、数据和属性各自的特点有哪些</p>
+<p>需要掌握的一些问题：<br>1.实体及实体之间的关系（1对1，1对多，多对多）<br>2.实体所包含的属性有什么？<br>3.哪些属性或者属性的组合可以唯一标识一个实体</p>
+<p>为什么要进行需求分析？<br>1.了解系统中所要存储的数据<br>2.了解数据的存储特点<br>3.了解数据的生命周期</p>
+<p>分析属性（通用模板）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">包括属性：</span><br><span class="line">可选唯一标识属性：</span><br><span class="line">存储特点：</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">用户模块（用于记录注册用户信息）</span><br><span class="line">包括属性：用户名、密码、电话、邮箱、身份证号、地址、姓名、昵称...</span><br><span class="line">可选唯一标识属性：用户名、身份证、电话</span><br><span class="line">存储特点：随系统上线时间逐渐增加，需要永久存储</span><br><span class="line"></span><br><span class="line">商品模块（用于记录网站中锁销售的商品信息）</span><br><span class="line">包括属性：商品编码、商品名称、商品描述、商品品类、供应商名称、重量、有效期、价格...</span><br><span class="line">可选唯一标识属性：（商品名称，供应商名称）、（商品编码）</span><br><span class="line">存储特点：对于下先商品可以归档存储</span><br><span class="line"></span><br><span class="line">订单模块（用于用户订购商品的信息）</span><br><span class="line">包括属性：订单号、用户姓名、用户电话、收货地址、商品编号、商品名称、数量、价格、订单状态、支付状态、订单类型...</span><br><span class="line">可选唯一标识属性：（订单号）、（用户姓名，商品编号，下单日期）</span><br><span class="line">存储特点：永久存储（分表、分库存储）</span><br><span class="line"></span><br><span class="line">购物车模块（用户保存用户购物时选对的商品）</span><br><span class="line">包括属性：用户名、商品编号、商品名称、商品何价格、商品描述、商品分类、加入时间、商品数量...</span><br><span class="line">可选唯一标识：（用户名、商品编号、加入时间）、（购物车编号）</span><br><span class="line">存储特点：不用永久存储（设置归档、清理规则）</span><br><span class="line"></span><br><span class="line">供应商模块（用户保存所销售商品的供应商信息）</span><br><span class="line">包括属性：供应商编号、供应商名称、联系人、电话、营业执照号、地址、法人...</span><br><span class="line">可选唯一标识：供应商编号，营业执照号</span><br><span class="line">存储特点：永久存储</span><br></pre></td></tr></table></figure></p>
+<p>分析关系（画图分析）：</p>
+
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="https://xiao-linxin.github.io/1970/01/01/20170110数据库设计/" data-id="ck4t7pbey000uz6hnud3wul0r" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/04/20160704hexo使用步骤/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          hexo使用步骤
+        
+      </div>
+    </a>
+  
+  
+    <a href="/1970/01/01/20191123算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">算法(Algorithms)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">xiao-linxin</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/search" title="search">
+            <li>搜索</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="http://img.fanwp.cn/IMG_4296.JPG">
+    <h2 class="author">xiao-linxin</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>8</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>8</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/xiao-linxin" target="_blank" title="Github">
+          Github
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://gitee.com/xiao_linxin" target="_blank" title="Gitee">
+          Gitee
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2></h2>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2016 - 2019 <a href="https://github.com/xiao-linxin">xiao-linxin</a><br>
+      Powered by <a href="http://hexo.io/" target="_blank">hexo</a> and <a href="https://github.com/ShanaMaid/hexo-theme-shana">shana</a> and <a href="https://github.com/">github</a>.
+      <!--由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 |-->
+      <!--主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>-->
+      
+        | 站长统计 <script>
+
+          var cnzz_s_tag =document.createElement('script');
+
+          cnzz_s_tag.type ='text/javascript';
+
+          cnzz_s_tag.async =true;
+
+          cnzz_s_tag.charset= 'utf-8';
+
+          cnzz_s_tag.src ='https://w.cnzz.com/c.php?id=1276097034&async=1';
+
+          var root_s =document.getElementsByTagName('script')[0];
+
+          root_s.parentNode.insertBefore(cnzz_s_tag,root_s);
+
+        </script>
+      
+    </div>
+
+  </div>
+</footer>
+
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="https://github.com/xiao-linxin" title="" class="menuItem">Github</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">关于我</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("XzWyJ3sWCsDg9U9NbPNHkyzQ-gzGzoHsz", "V4KNTPdo7AO8gtV2m7hxkE12");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":80,"height":160,"hOffset":0,"vOffset":-40},"mobile":{"show":true,"scale":0.2,"motion":true}});</script></body>
+</html>
